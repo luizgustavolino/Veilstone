@@ -34,6 +34,7 @@ class Veilstone : NSObject{
         
         joystick.setup()
         renderer.run(inFullscreen: false, w: 1440/2, h: 900/2)
+        
     }
 }
 

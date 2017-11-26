@@ -24,5 +24,6 @@
 @property (nonatomic, assign) id<MainRendererDelegate> delegate;
 
 -(int) runInFullscreen:(bool) full w:(int) dw h:(int) dh;
+-(void) reload;
 
 @end

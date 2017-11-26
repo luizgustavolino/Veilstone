@@ -38,12 +38,6 @@
 		2738E6A01FC2527D00D17C22 /* vboindexer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2738E6961FC2527C00D17C22 /* vboindexer.cpp */; };
 		2738E6A11FC2527D00D17C22 /* tangentspace.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2738E6991FC2527C00D17C22 /* tangentspace.cpp */; };
 		2738E8581FC2900F00D17C22 /* libassimp.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2738E8571FC2900F00D17C22 /* libassimp.dylib */; };
-		2738E88F1FC32C5C00D17C22 /* DepthRTT.fragmentshader in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2738E8891FC32C4D00D17C22 /* DepthRTT.fragmentshader */; };
-		2738E8901FC32C5C00D17C22 /* DepthRTT.vertexshader in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2738E88A1FC32C4D00D17C22 /* DepthRTT.vertexshader */; };
-		2738E8911FC32C5C00D17C22 /* Passthrough.vertexshader in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2738E88B1FC32C4D00D17C22 /* Passthrough.vertexshader */; };
-		2738E8921FC32C5C00D17C22 /* ShadowMapping.fragmentshader in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2738E88D1FC32C4D00D17C22 /* ShadowMapping.fragmentshader */; };
-		2738E8931FC32C5C00D17C22 /* ShadowMapping.vertexshader in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2738E88C1FC32C4D00D17C22 /* ShadowMapping.vertexshader */; };
-		2738E8941FC32C5C00D17C22 /* SimpleTexture.fragmentshader in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2738E88E1FC32C4D00D17C22 /* SimpleTexture.fragmentshader */; };
 		273C9E2C1FC8377C003B10AA /* build11.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 273C9E2B1FC83764003B10AA /* build11.obj */; };
 		273C9E2E1FC83E39003B10AA /* build12.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 273C9E2D1FC83E33003B10AA /* build12.obj */; };
 		274C91681FC5C55C00E5943A /* 5x5xgggg.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 274C91671FC5C4DC00E5943A /* 5x5xgggg.obj */; };
@@ -55,6 +49,11 @@
 		27B9C3D61FCA6DDB003926D5 /* hud.vertexshader in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27B9C3D31FCA6A75003926D5 /* hud.vertexshader */; };
 		27B9C3D71FCA6DDB003926D5 /* hud.fragmentshader in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27B9C3D41FCA6A87003926D5 /* hud.fragmentshader */; };
 		27B9C3D91FCA809B003926D5 /* cards.dds in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27B9C3D81FCA8095003926D5 /* cards.dds */; };
+		27B9C3DC1FCB1648003926D5 /* HUDRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 27B9C3DB1FCB1648003926D5 /* HUDRenderer.m */; };
+		27B9C3DF1FCB17BD003926D5 /* Renderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 27B9C3DE1FCB17BD003926D5 /* Renderer.m */; };
+		27B9C3E21FCB1DC2003926D5 /* CityRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 27B9C3E11FCB1DC2003926D5 /* CityRenderer.m */; };
+		27B9C3E51FCB2643003926D5 /* vox.fragmentshader in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27B9C3E31FCB261E003926D5 /* vox.fragmentshader */; };
+		27B9C3E61FCB2643003926D5 /* vox.vertexshader in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27B9C3E41FCB261E003926D5 /* vox.vertexshader */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -76,6 +75,8 @@
 			dstPath = res;
 			dstSubfolderSpec = 16;
 			files = (
+				27B9C3E51FCB2643003926D5 /* vox.fragmentshader in CopyFiles */,
+				27B9C3E61FCB2643003926D5 /* vox.vertexshader in CopyFiles */,
 				27B9C3D91FCA809B003926D5 /* cards.dds in CopyFiles */,
 				27B9C3D61FCA6DDB003926D5 /* hud.vertexshader in CopyFiles */,
 				27B9C3D71FCA6DDB003926D5 /* hud.fragmentshader in CopyFiles */,
@@ -93,12 +94,6 @@
 				2702F1241FC5A8C4002B79C9 /* build10.obj in CopyFiles */,
 				2702F1181FC59A67002B79C9 /* magika.dds in CopyFiles */,
 				2702F1191FC59A67002B79C9 /* magika.mtl in CopyFiles */,
-				2738E88F1FC32C5C00D17C22 /* DepthRTT.fragmentshader in CopyFiles */,
-				2738E8901FC32C5C00D17C22 /* DepthRTT.vertexshader in CopyFiles */,
-				2738E8911FC32C5C00D17C22 /* Passthrough.vertexshader in CopyFiles */,
-				2738E8921FC32C5C00D17C22 /* ShadowMapping.fragmentshader in CopyFiles */,
-				2738E8931FC32C5C00D17C22 /* ShadowMapping.vertexshader in CopyFiles */,
-				2738E8941FC32C5C00D17C22 /* SimpleTexture.fragmentshader in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,12 +459,6 @@
 		2738E8861FC2902900D17C22 /* DefaultIOSystem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DefaultIOSystem.h; sourceTree = "<group>"; };
 		2738E8871FC2902900D17C22 /* scene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = scene.h; sourceTree = "<group>"; };
 		2738E8881FC2902900D17C22 /* LogStream.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LogStream.hpp; sourceTree = "<group>"; };
-		2738E8891FC32C4D00D17C22 /* DepthRTT.fragmentshader */ = {isa = PBXFileReference; lastKnownFileType = text; path = DepthRTT.fragmentshader; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
-		2738E88A1FC32C4D00D17C22 /* DepthRTT.vertexshader */ = {isa = PBXFileReference; lastKnownFileType = text; path = DepthRTT.vertexshader; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
-		2738E88B1FC32C4D00D17C22 /* Passthrough.vertexshader */ = {isa = PBXFileReference; lastKnownFileType = text; path = Passthrough.vertexshader; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
-		2738E88C1FC32C4D00D17C22 /* ShadowMapping.vertexshader */ = {isa = PBXFileReference; lastKnownFileType = text; path = ShadowMapping.vertexshader; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
-		2738E88D1FC32C4D00D17C22 /* ShadowMapping.fragmentshader */ = {isa = PBXFileReference; lastKnownFileType = text; path = ShadowMapping.fragmentshader; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
-		2738E88E1FC32C4D00D17C22 /* SimpleTexture.fragmentshader */ = {isa = PBXFileReference; lastKnownFileType = text; path = SimpleTexture.fragmentshader; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
 		273C9E2B1FC83764003B10AA /* build11.obj */ = {isa = PBXFileReference; explicitFileType = text; fileEncoding = 4; path = build11.obj; sourceTree = "<group>"; };
 		273C9E2D1FC83E33003B10AA /* build12.obj */ = {isa = PBXFileReference; explicitFileType = text; fileEncoding = 4; path = build12.obj; sourceTree = "<group>"; };
 		274C91671FC5C4DC00E5943A /* 5x5xgggg.obj */ = {isa = PBXFileReference; explicitFileType = text; path = 5x5xgggg.obj; sourceTree = "<group>"; };
@@ -478,9 +467,17 @@
 		278979441FC5B81500D4F012 /* 25x5xroad.obj */ = {isa = PBXFileReference; explicitFileType = text; path = 25x5xroad.obj; sourceTree = "<group>"; };
 		278979451FC5B81500D4F012 /* 5x25xgreen.obj */ = {isa = PBXFileReference; explicitFileType = text; path = 5x25xgreen.obj; sourceTree = "<group>"; };
 		278979461FC5B81500D4F012 /* 25x5xgreen.obj */ = {isa = PBXFileReference; explicitFileType = text; path = 25x5xgreen.obj; sourceTree = "<group>"; };
-		27B9C3D31FCA6A75003926D5 /* hud.vertexshader */ = {isa = PBXFileReference; lastKnownFileType = text; path = hud.vertexshader; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
-		27B9C3D41FCA6A87003926D5 /* hud.fragmentshader */ = {isa = PBXFileReference; lastKnownFileType = text; path = hud.fragmentshader; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
+		27B9C3D31FCA6A75003926D5 /* hud.vertexshader */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; path = hud.vertexshader; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
+		27B9C3D41FCA6A87003926D5 /* hud.fragmentshader */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; path = hud.fragmentshader; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
 		27B9C3D81FCA8095003926D5 /* cards.dds */ = {isa = PBXFileReference; lastKnownFileType = file; path = cards.dds; sourceTree = "<group>"; };
+		27B9C3DA1FCB1648003926D5 /* HUDRenderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HUDRenderer.h; sourceTree = "<group>"; };
+		27B9C3DB1FCB1648003926D5 /* HUDRenderer.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = HUDRenderer.m; sourceTree = "<group>"; };
+		27B9C3DD1FCB17BD003926D5 /* Renderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Renderer.h; sourceTree = "<group>"; };
+		27B9C3DE1FCB17BD003926D5 /* Renderer.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = Renderer.m; sourceTree = "<group>"; };
+		27B9C3E01FCB1DC2003926D5 /* CityRenderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CityRenderer.h; sourceTree = "<group>"; };
+		27B9C3E11FCB1DC2003926D5 /* CityRenderer.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = CityRenderer.m; sourceTree = "<group>"; };
+		27B9C3E31FCB261E003926D5 /* vox.fragmentshader */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; path = vox.fragmentshader; sourceTree = "<group>"; };
+		27B9C3E41FCB261E003926D5 /* vox.vertexshader */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; path = vox.vertexshader; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -538,6 +535,12 @@
 				2738E66E1FC237ED00D17C22 /* MainRenderer.m */,
 				2702F11A1FC59F2B002B79C9 /* ModelCache.h */,
 				2702F11B1FC59F2B002B79C9 /* ModelCache.m */,
+				27B9C3DD1FCB17BD003926D5 /* Renderer.h */,
+				27B9C3DE1FCB17BD003926D5 /* Renderer.m */,
+				27B9C3DA1FCB1648003926D5 /* HUDRenderer.h */,
+				27B9C3DB1FCB1648003926D5 /* HUDRenderer.m */,
+				27B9C3E01FCB1DC2003926D5 /* CityRenderer.h */,
+				27B9C3E11FCB1DC2003926D5 /* CityRenderer.m */,
 			);
 			path = Renderer;
 			sourceTree = "<group>";
@@ -929,14 +932,10 @@
 		2738E6A21FC25E0300D17C22 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				2738E8891FC32C4D00D17C22 /* DepthRTT.fragmentshader */,
-				2738E88A1FC32C4D00D17C22 /* DepthRTT.vertexshader */,
-				2738E88B1FC32C4D00D17C22 /* Passthrough.vertexshader */,
-				2738E88D1FC32C4D00D17C22 /* ShadowMapping.fragmentshader */,
-				2738E88C1FC32C4D00D17C22 /* ShadowMapping.vertexshader */,
-				2738E88E1FC32C4D00D17C22 /* SimpleTexture.fragmentshader */,
 				27B9C3D31FCA6A75003926D5 /* hud.vertexshader */,
 				27B9C3D41FCA6A87003926D5 /* hud.fragmentshader */,
+				27B9C3E41FCB261E003926D5 /* vox.vertexshader */,
+				27B9C3E31FCB261E003926D5 /* vox.fragmentshader */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1092,12 +1091,15 @@
 				2738E6851FC23AE800D17C22 /* JSActionAnalog.m in Sources */,
 				2738E6841FC23AE800D17C22 /* JSAction.m in Sources */,
 				2738E6A01FC2527D00D17C22 /* vboindexer.cpp in Sources */,
+				27B9C3DF1FCB17BD003926D5 /* Renderer.m in Sources */,
 				2738E69D1FC2527D00D17C22 /* controls.cpp in Sources */,
 				2738E6831FC23AE800D17C22 /* SubAction.m in Sources */,
 				2738E69B1FC2527D00D17C22 /* text2D.cpp in Sources */,
 				2738E6871FC23AE800D17C22 /* Joystick.m in Sources */,
 				2738E6861FC23AE800D17C22 /* JSActionButton.m in Sources */,
+				27B9C3E21FCB1DC2003926D5 /* CityRenderer.m in Sources */,
 				2738E69E1FC2527D00D17C22 /* quaternion_utils.cpp in Sources */,
+				27B9C3DC1FCB1648003926D5 /* HUDRenderer.m in Sources */,
 				2738E6881FC23AE800D17C22 /* JoystickController.m in Sources */,
 				2738E69C1FC2527D00D17C22 /* texture.cpp in Sources */,
 				2738E68C1FC2516A00D17C22 /* objloader.cpp in Sources */,

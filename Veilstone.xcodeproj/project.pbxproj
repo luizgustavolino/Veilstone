@@ -14,6 +14,9 @@
 		2702F1231FC5A8C4002B79C9 /* build1.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2702F1201FC5A7FE002B79C9 /* build1.obj */; };
 		2702F1241FC5A8C4002B79C9 /* build10.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2702F11F1FC5A7FD002B79C9 /* build10.obj */; };
 		2702F1261FC5AD97002B79C9 /* 5x5.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2702F1251FC5AD85002B79C9 /* 5x5.obj */; };
+		2707010A1FCA51B0003C6A4B /* libassimp.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2738E8571FC2900F00D17C22 /* libassimp.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		2707010B1FCA51B0003C6A4B /* libGLEW.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2738E5571FC237DA00D17C22 /* libGLEW.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		2707010C1FCA51B0003C6A4B /* libglfw.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2738E5581FC237DA00D17C22 /* libglfw.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		2738E54F1FC2377D00D17C22 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2738E54E1FC2377D00D17C22 /* main.swift */; };
 		2738E66A1FC237DA00D17C22 /* libGLEW.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2738E5571FC237DA00D17C22 /* libGLEW.dylib */; };
 		2738E66B1FC237DA00D17C22 /* libglfw.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2738E5581FC237DA00D17C22 /* libglfw.dylib */; };
@@ -34,7 +37,7 @@
 		2738E69F1FC2527D00D17C22 /* shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2738E6931FC2527C00D17C22 /* shader.cpp */; };
 		2738E6A01FC2527D00D17C22 /* vboindexer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2738E6961FC2527C00D17C22 /* vboindexer.cpp */; };
 		2738E6A11FC2527D00D17C22 /* tangentspace.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2738E6991FC2527C00D17C22 /* tangentspace.cpp */; };
-		2738E8581FC2900F00D17C22 /* libassimp.4.0.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2738E8571FC2900F00D17C22 /* libassimp.4.0.1.dylib */; };
+		2738E8581FC2900F00D17C22 /* libassimp.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2738E8571FC2900F00D17C22 /* libassimp.dylib */; };
 		2738E88F1FC32C5C00D17C22 /* DepthRTT.fragmentshader in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2738E8891FC32C4D00D17C22 /* DepthRTT.fragmentshader */; };
 		2738E8901FC32C5C00D17C22 /* DepthRTT.vertexshader in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2738E88A1FC32C4D00D17C22 /* DepthRTT.vertexshader */; };
 		2738E8911FC32C5C00D17C22 /* Passthrough.vertexshader in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2738E88B1FC32C4D00D17C22 /* Passthrough.vertexshader */; };
@@ -52,6 +55,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		270701091FCA51A1003C6A4B /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 8;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				2707010A1FCA51B0003C6A4B /* libassimp.dylib in CopyFiles */,
+				2707010B1FCA51B0003C6A4B /* libGLEW.dylib in CopyFiles */,
+				2707010C1FCA51B0003C6A4B /* libglfw.dylib in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		2738E5491FC2377D00D17C22 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 12;
@@ -396,7 +411,7 @@
 		2738E6981FC2527C00D17C22 /* controls.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = controls.hpp; sourceTree = "<group>"; };
 		2738E6991FC2527C00D17C22 /* tangentspace.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tangentspace.cpp; sourceTree = "<group>"; };
 		2738E69A1FC2527D00D17C22 /* texture.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = texture.hpp; sourceTree = "<group>"; };
-		2738E8571FC2900F00D17C22 /* libassimp.4.0.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libassimp.4.0.1.dylib; sourceTree = "<group>"; };
+		2738E8571FC2900F00D17C22 /* libassimp.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libassimp.dylib; sourceTree = "<group>"; };
 		2738E85A1FC2902900D17C22 /* IOSystem.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = IOSystem.hpp; sourceTree = "<group>"; };
 		2738E85B1FC2902900D17C22 /* Logger.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Logger.hpp; sourceTree = "<group>"; };
 		2738E85C1FC2902900D17C22 /* IOStream.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = IOStream.hpp; sourceTree = "<group>"; };
@@ -466,7 +481,7 @@
 			files = (
 				2738E6721FC238BB00D17C22 /* OpenGL.framework in Frameworks */,
 				2738E66B1FC237DA00D17C22 /* libglfw.dylib in Frameworks */,
-				2738E8581FC2900F00D17C22 /* libassimp.4.0.1.dylib in Frameworks */,
+				2738E8581FC2900F00D17C22 /* libassimp.dylib in Frameworks */,
 				2738E66A1FC237DA00D17C22 /* libGLEW.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -521,7 +536,7 @@
 		2738E5561FC237DA00D17C22 /* lib */ = {
 			isa = PBXGroup;
 			children = (
-				2738E8571FC2900F00D17C22 /* libassimp.4.0.1.dylib */,
+				2738E8571FC2900F00D17C22 /* libassimp.dylib */,
 				2738E5571FC237DA00D17C22 /* libGLEW.dylib */,
 				2738E5581FC237DA00D17C22 /* libglfw.dylib */,
 			);
@@ -1007,6 +1022,7 @@
 				2738E5471FC2377D00D17C22 /* Sources */,
 				2738E5481FC2377D00D17C22 /* Frameworks */,
 				2738E5491FC2377D00D17C22 /* CopyFiles */,
+				270701091FCA51A1003C6A4B /* CopyFiles */,
 			);
 			buildRules = (
 			);

@@ -50,12 +50,24 @@ extension Veilstone : JoystickControllerDelegate {
 
 extension Veilstone : MainRendererDelegate {
     
+    func didChooseCard(withBuildingID bid: Int32) {
+        
+    }
+    
     func mapSize() -> Int32 {
         return Int32(size)
     }
     
     func building(forPX px: Int32, py: Int32) -> Int32 {
         return Int32(matrix[Int(px)][Int(py)])
+    }
+    
+    func options() -> [NSNumber]! {
+        var options:[NSNumber] = []
+        for i in [100,101,102,103] {
+            options.append(NSNumber(integerLiteral: i))
+        }
+        return options
     }
 }
 

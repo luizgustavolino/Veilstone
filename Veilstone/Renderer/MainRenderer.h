@@ -12,6 +12,8 @@
 
 -(int) mapSize;
 -(int) buildingForPX:(int) px PY:(int)py;
+-(void) didChooseCardWithBuildingID:(int) bid;
+-(NSArray<NSNumber*>*) options;
 
 @end
 

@@ -52,6 +52,9 @@
 		278979481FC5B85300D4F012 /* 5x25xroad.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 278979431FC5B81500D4F012 /* 5x25xroad.obj */; };
 		278979491FC5B85300D4F012 /* 25x5xgreen.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 278979461FC5B81500D4F012 /* 25x5xgreen.obj */; };
 		2789794A1FC5B85300D4F012 /* 25x5xroad.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 278979441FC5B81500D4F012 /* 25x5xroad.obj */; };
+		27B9C3D61FCA6DDB003926D5 /* hud.vertexshader in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27B9C3D31FCA6A75003926D5 /* hud.vertexshader */; };
+		27B9C3D71FCA6DDB003926D5 /* hud.fragmentshader in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27B9C3D41FCA6A87003926D5 /* hud.fragmentshader */; };
+		27B9C3D91FCA809B003926D5 /* cards.dds in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27B9C3D81FCA8095003926D5 /* cards.dds */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -73,6 +76,9 @@
 			dstPath = res;
 			dstSubfolderSpec = 16;
 			files = (
+				27B9C3D91FCA809B003926D5 /* cards.dds in CopyFiles */,
+				27B9C3D61FCA6DDB003926D5 /* hud.vertexshader in CopyFiles */,
+				27B9C3D71FCA6DDB003926D5 /* hud.fragmentshader in CopyFiles */,
 				273C9E2E1FC83E39003B10AA /* build12.obj in CopyFiles */,
 				273C9E2C1FC8377C003B10AA /* build11.obj in CopyFiles */,
 				274C916A1FC5D02000E5943A /* 5x5xrggg.obj in CopyFiles */,
@@ -472,6 +478,9 @@
 		278979441FC5B81500D4F012 /* 25x5xroad.obj */ = {isa = PBXFileReference; explicitFileType = text; path = 25x5xroad.obj; sourceTree = "<group>"; };
 		278979451FC5B81500D4F012 /* 5x25xgreen.obj */ = {isa = PBXFileReference; explicitFileType = text; path = 5x25xgreen.obj; sourceTree = "<group>"; };
 		278979461FC5B81500D4F012 /* 25x5xgreen.obj */ = {isa = PBXFileReference; explicitFileType = text; path = 25x5xgreen.obj; sourceTree = "<group>"; };
+		27B9C3D31FCA6A75003926D5 /* hud.vertexshader */ = {isa = PBXFileReference; lastKnownFileType = text; path = hud.vertexshader; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
+		27B9C3D41FCA6A87003926D5 /* hud.fragmentshader */ = {isa = PBXFileReference; lastKnownFileType = text; path = hud.fragmentshader; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
+		27B9C3D81FCA8095003926D5 /* cards.dds */ = {isa = PBXFileReference; lastKnownFileType = file; path = cards.dds; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -926,6 +935,8 @@
 				2738E88D1FC32C4D00D17C22 /* ShadowMapping.fragmentshader */,
 				2738E88C1FC32C4D00D17C22 /* ShadowMapping.vertexshader */,
 				2738E88E1FC32C4D00D17C22 /* SimpleTexture.fragmentshader */,
+				27B9C3D31FCA6A75003926D5 /* hud.vertexshader */,
+				27B9C3D41FCA6A87003926D5 /* hud.fragmentshader */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -946,6 +957,7 @@
 				273C9E2B1FC83764003B10AA /* build11.obj */,
 				273C9E2D1FC83E33003B10AA /* build12.obj */,
 				2702F1121FC599C5002B79C9 /* magika.dds */,
+				27B9C3D81FCA8095003926D5 /* cards.dds */,
 				2702F1111FC599C5002B79C9 /* magika.mtl */,
 			);
 			path = Models;

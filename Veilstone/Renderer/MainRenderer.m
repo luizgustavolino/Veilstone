@@ -33,6 +33,7 @@ using namespace glm;
     
     GLuint FramebufferName;
     GLuint depthProgramID;
+    GLuint cardsProgramID;
     GLuint programID;
     
     GLuint depthMatrixID;
@@ -46,7 +47,10 @@ using namespace glm;
     GLuint LightInvDirID;
     
     GLuint Texture;
+    GLuint CardsTexture;
     GLuint TextureID;
+    GLuint CardsTextureID;
+    
     GLuint depthTexture;
     
     GLuint vertexbuffer;
@@ -153,7 +157,9 @@ using namespace glm;
     depthProgramID = LoadShaders( "res/DepthRTT.vertexshader",
                                   "res/DepthRTT.fragmentshader");
     depthMatrixID  = glGetUniformLocation(depthProgramID, "depthMVP");
-    Texture        = loadDDS("res/magika.DDS");
+    
+    Texture        = loadDDS("res/magika.dds");
+    CardsTexture   = loadDDS("res/cards.dds");
     
     [self buildVBO];
 
@@ -205,6 +211,10 @@ using namespace glm;
     programID     = LoadShaders( "res/ShadowMapping.vertexshader",
                                  "res/ShadowMapping.fragmentshader" );
     TextureID     = glGetUniformLocation(programID, "myTextureSampler");
+    
+    cardsProgramID = LoadShaders( "res/hud.vertexshader",
+                                   "res/hud.fragmentshader");
+    CardsTextureID = glGetUniformLocation(cardsProgramID, "cardsSampler");
     
     // Projection
     MatrixID      = glGetUniformLocation(programID, "MVP");
@@ -347,6 +357,49 @@ using namespace glm;
     glDisableVertexAttribArray(0);
     glDisableVertexAttribArray(1);
     glDisableVertexAttribArray(2);
+    
+    
+    // -> DRAW HUD
+    
+    glUseProgram(cardsProgramID);
+    glActiveTexture(GL_TEXTURE2);
+    glBindTexture(GL_TEXTURE_2D, CardsTexture);
+    glUniform1i(CardsTextureID, 2);
+    
+    static const GLfloat g_vertex_buffer_data[] = {
+        10.0f,  10.0f, 0.0f,
+        100.0f, 10.0f, 0.0f,
+        10.0f,  100.0f, 0.0f,
+    };
+    
+    static const GLfloat g_uv_buffer_data[] = {
+        0.0f, 0.0f,
+        100.0f, 0.0f,
+        0.0f, 100.0f
+    };
+    
+    GLuint hudbuffer;
+    glGenBuffers(1, &hudbuffer);
+    glBindBuffer(GL_ARRAY_BUFFER, hudbuffer);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(g_vertex_buffer_data),
+                 g_vertex_buffer_data, GL_STATIC_DRAW);
+
+    glEnableVertexAttribArray(0);
+    glBindBuffer(GL_ARRAY_BUFFER, hudbuffer);
+    glVertexAttribPointer( 0, 3, GL_FLOAT, GL_FALSE, 0, (void*)0 );
+    
+    GLuint huduvbuffer;
+    glGenBuffers(1, &huduvbuffer);
+    glBindBuffer(GL_ARRAY_BUFFER, huduvbuffer);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(g_uv_buffer_data),
+                 g_uv_buffer_data, GL_STATIC_DRAW);
+    
+    glEnableVertexAttribArray(1);
+    glBindBuffer(GL_ARRAY_BUFFER, huduvbuffer);
+    glVertexAttribPointer( 0, 2, GL_FLOAT, GL_FALSE, 0, (void*)0 );
+    
+    glDrawArrays(GL_TRIANGLES, 0, 3);
+    glDisableVertexAttribArray(0);
     
     // Swap buffers
     glfwSwapBuffers(window);

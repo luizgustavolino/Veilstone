@@ -48,12 +48,18 @@
 		2789794A1FC5B85300D4F012 /* 25x5xroad.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 278979441FC5B81500D4F012 /* 25x5xroad.obj */; };
 		27B9C3D61FCA6DDB003926D5 /* hud.vertexshader in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27B9C3D31FCA6A75003926D5 /* hud.vertexshader */; };
 		27B9C3D71FCA6DDB003926D5 /* hud.fragmentshader in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27B9C3D41FCA6A87003926D5 /* hud.fragmentshader */; };
-		27B9C3D91FCA809B003926D5 /* cards.dds in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27B9C3D81FCA8095003926D5 /* cards.dds */; };
 		27B9C3DC1FCB1648003926D5 /* HUDRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 27B9C3DB1FCB1648003926D5 /* HUDRenderer.m */; };
 		27B9C3DF1FCB17BD003926D5 /* Renderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 27B9C3DE1FCB17BD003926D5 /* Renderer.m */; };
 		27B9C3E21FCB1DC2003926D5 /* CityRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 27B9C3E11FCB1DC2003926D5 /* CityRenderer.m */; };
 		27B9C3E51FCB2643003926D5 /* vox.fragmentshader in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27B9C3E31FCB261E003926D5 /* vox.fragmentshader */; };
 		27B9C3E61FCB2643003926D5 /* vox.vertexshader in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27B9C3E41FCB261E003926D5 /* vox.vertexshader */; };
+		27B9C3EB1FCB4549003926D5 /* HUDSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 27B9C3EA1FCB4549003926D5 /* HUDSprite.m */; };
+		27B9C3F11FCB533E003926D5 /* libpng.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 27B9C3F01FCB533E003926D5 /* libpng.dylib */; };
+		27B9C3F91FCB5393003926D5 /* libpng.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27B9C3F01FCB533E003926D5 /* libpng.dylib */; };
+		27B9C3FB1FCB53BE003926D5 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 27B9C3FA1FCB53BD003926D5 /* libz.tbd */; };
+		27B9C4001FCB5563003926D5 /* cards.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27B9C3FF1FCB555E003926D5 /* cards.png */; };
+		27B9C4031FCB5B6C003926D5 /* lodepng.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27B9C4021FCB5B6C003926D5 /* lodepng.cpp */; };
+		27B9C4051FCB747F003926D5 /* texture.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27B9C4041FCB7472003926D5 /* texture.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -63,6 +69,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
+				27B9C3F91FCB5393003926D5 /* libpng.dylib in CopyFiles */,
 				2707010A1FCA51B0003C6A4B /* libassimp.dylib in CopyFiles */,
 				2707010B1FCA51B0003C6A4B /* libGLEW.dylib in CopyFiles */,
 				2707010C1FCA51B0003C6A4B /* libglfw.dylib in CopyFiles */,
@@ -75,9 +82,10 @@
 			dstPath = res;
 			dstSubfolderSpec = 16;
 			files = (
+				27B9C4051FCB747F003926D5 /* texture.png in CopyFiles */,
+				27B9C4001FCB5563003926D5 /* cards.png in CopyFiles */,
 				27B9C3E51FCB2643003926D5 /* vox.fragmentshader in CopyFiles */,
 				27B9C3E61FCB2643003926D5 /* vox.vertexshader in CopyFiles */,
-				27B9C3D91FCA809B003926D5 /* cards.dds in CopyFiles */,
 				27B9C3D61FCA6DDB003926D5 /* hud.vertexshader in CopyFiles */,
 				27B9C3D71FCA6DDB003926D5 /* hud.fragmentshader in CopyFiles */,
 				273C9E2E1FC83E39003B10AA /* build12.obj in CopyFiles */,
@@ -469,7 +477,6 @@
 		278979461FC5B81500D4F012 /* 25x5xgreen.obj */ = {isa = PBXFileReference; explicitFileType = text; path = 25x5xgreen.obj; sourceTree = "<group>"; };
 		27B9C3D31FCA6A75003926D5 /* hud.vertexshader */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; path = hud.vertexshader; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
 		27B9C3D41FCA6A87003926D5 /* hud.fragmentshader */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; path = hud.fragmentshader; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
-		27B9C3D81FCA8095003926D5 /* cards.dds */ = {isa = PBXFileReference; lastKnownFileType = file; path = cards.dds; sourceTree = "<group>"; };
 		27B9C3DA1FCB1648003926D5 /* HUDRenderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HUDRenderer.h; sourceTree = "<group>"; };
 		27B9C3DB1FCB1648003926D5 /* HUDRenderer.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = HUDRenderer.m; sourceTree = "<group>"; };
 		27B9C3DD1FCB17BD003926D5 /* Renderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Renderer.h; sourceTree = "<group>"; };
@@ -478,6 +485,20 @@
 		27B9C3E11FCB1DC2003926D5 /* CityRenderer.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = CityRenderer.m; sourceTree = "<group>"; };
 		27B9C3E31FCB261E003926D5 /* vox.fragmentshader */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; path = vox.fragmentshader; sourceTree = "<group>"; };
 		27B9C3E41FCB261E003926D5 /* vox.vertexshader */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; path = vox.vertexshader; sourceTree = "<group>"; };
+		27B9C3E91FCB4549003926D5 /* HUDSprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HUDSprite.h; sourceTree = "<group>"; };
+		27B9C3EA1FCB4549003926D5 /* HUDSprite.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = HUDSprite.m; sourceTree = "<group>"; };
+		27B9C3F01FCB533E003926D5 /* libpng.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libpng.dylib; sourceTree = "<group>"; };
+		27B9C3F21FCB5373003926D5 /* pnglibconf.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pnglibconf.h; sourceTree = "<group>"; };
+		27B9C3F41FCB5373003926D5 /* png.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = png.h; sourceTree = "<group>"; };
+		27B9C3F51FCB5373003926D5 /* pnglibconf.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pnglibconf.h; sourceTree = "<group>"; };
+		27B9C3F61FCB5373003926D5 /* pngconf.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pngconf.h; sourceTree = "<group>"; };
+		27B9C3F71FCB5373003926D5 /* pngconf.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pngconf.h; sourceTree = "<group>"; };
+		27B9C3F81FCB5373003926D5 /* png.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = png.h; sourceTree = "<group>"; };
+		27B9C3FA1FCB53BD003926D5 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		27B9C3FF1FCB555E003926D5 /* cards.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cards.png; sourceTree = "<group>"; };
+		27B9C4011FCB5B6C003926D5 /* lodepng.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lodepng.h; sourceTree = "<group>"; };
+		27B9C4021FCB5B6C003926D5 /* lodepng.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lodepng.cpp; sourceTree = "<group>"; };
+		27B9C4041FCB7472003926D5 /* texture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = texture.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -486,8 +507,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2738E6721FC238BB00D17C22 /* OpenGL.framework in Frameworks */,
+				27B9C3FB1FCB53BE003926D5 /* libz.tbd in Frameworks */,
 				2738E66B1FC237DA00D17C22 /* libglfw.dylib in Frameworks */,
 				2738E8581FC2900F00D17C22 /* libassimp.dylib in Frameworks */,
+				27B9C3F11FCB533E003926D5 /* libpng.dylib in Frameworks */,
 				2738E66A1FC237DA00D17C22 /* libGLEW.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -539,6 +562,8 @@
 				27B9C3DE1FCB17BD003926D5 /* Renderer.m */,
 				27B9C3DA1FCB1648003926D5 /* HUDRenderer.h */,
 				27B9C3DB1FCB1648003926D5 /* HUDRenderer.m */,
+				27B9C3E91FCB4549003926D5 /* HUDSprite.h */,
+				27B9C3EA1FCB4549003926D5 /* HUDSprite.m */,
 				27B9C3E01FCB1DC2003926D5 /* CityRenderer.h */,
 				27B9C3E11FCB1DC2003926D5 /* CityRenderer.m */,
 			);
@@ -551,6 +576,7 @@
 				2738E8571FC2900F00D17C22 /* libassimp.dylib */,
 				2738E5571FC237DA00D17C22 /* libGLEW.dylib */,
 				2738E5581FC237DA00D17C22 /* libglfw.dylib */,
+				27B9C3F01FCB533E003926D5 /* libpng.dylib */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -558,11 +584,15 @@
 		2738E5591FC237DA00D17C22 /* include */ = {
 			isa = PBXGroup;
 			children = (
+				27B9C3F31FCB5373003926D5 /* libpng16 */,
 				2738E8591FC2902900D17C22 /* assimp */,
 				2738E55C1FC237DA00D17C22 /* GL */,
 				2738E5601FC237DA00D17C22 /* glm */,
 				2738E55A1FC237DA00D17C22 /* glfw3.h */,
 				2738E55B1FC237DA00D17C22 /* glfw3native.h */,
+				27B9C3F81FCB5373003926D5 /* png.h */,
+				27B9C3F71FCB5373003926D5 /* pngconf.h */,
+				27B9C3F21FCB5373003926D5 /* pnglibconf.h */,
 			);
 			path = include;
 			sourceTree = "<group>";
@@ -880,6 +910,7 @@
 		2738E6701FC2381300D17C22 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				27B9C3FA1FCB53BD003926D5 /* libz.tbd */,
 				2738E6711FC2381300D17C22 /* OpenGL.framework */,
 			);
 			name = Frameworks;
@@ -918,6 +949,8 @@
 				2738E6991FC2527C00D17C22 /* tangentspace.cpp */,
 				2738E6951FC2527C00D17C22 /* tangentspace.hpp */,
 				2738E68E1FC2527C00D17C22 /* text2D.cpp */,
+				27B9C4021FCB5B6C003926D5 /* lodepng.cpp */,
+				27B9C4011FCB5B6C003926D5 /* lodepng.h */,
 				2738E6921FC2527C00D17C22 /* text2D.hpp */,
 				2738E68F1FC2527C00D17C22 /* texture.cpp */,
 				2738E69A1FC2527D00D17C22 /* texture.hpp */,
@@ -956,8 +989,9 @@
 				273C9E2B1FC83764003B10AA /* build11.obj */,
 				273C9E2D1FC83E33003B10AA /* build12.obj */,
 				2702F1121FC599C5002B79C9 /* magika.dds */,
-				27B9C3D81FCA8095003926D5 /* cards.dds */,
 				2702F1111FC599C5002B79C9 /* magika.mtl */,
+				27B9C4041FCB7472003926D5 /* texture.png */,
+				27B9C3FF1FCB555E003926D5 /* cards.png */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1021,6 +1055,16 @@
 				2738E8841FC2902900D17C22 /* pushpack1.h */,
 			);
 			path = Compiler;
+			sourceTree = "<group>";
+		};
+		27B9C3F31FCB5373003926D5 /* libpng16 */ = {
+			isa = PBXGroup;
+			children = (
+				27B9C3F41FCB5373003926D5 /* png.h */,
+				27B9C3F51FCB5373003926D5 /* pnglibconf.h */,
+				27B9C3F61FCB5373003926D5 /* pngconf.h */,
+			);
+			path = libpng16;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1089,8 +1133,10 @@
 				2738E6A11FC2527D00D17C22 /* tangentspace.cpp in Sources */,
 				2738E6821FC23AE800D17C22 /* JSActionHat.m in Sources */,
 				2738E6851FC23AE800D17C22 /* JSActionAnalog.m in Sources */,
+				27B9C3EB1FCB4549003926D5 /* HUDSprite.m in Sources */,
 				2738E6841FC23AE800D17C22 /* JSAction.m in Sources */,
 				2738E6A01FC2527D00D17C22 /* vboindexer.cpp in Sources */,
+				27B9C4031FCB5B6C003926D5 /* lodepng.cpp in Sources */,
 				27B9C3DF1FCB17BD003926D5 /* Renderer.m in Sources */,
 				2738E69D1FC2527D00D17C22 /* controls.cpp in Sources */,
 				2738E6831FC23AE800D17C22 /* SubAction.m in Sources */,

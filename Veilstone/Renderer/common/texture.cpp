@@ -190,6 +190,10 @@ GLuint loadDDS(const char * imagepath){
 	glBindTexture(GL_TEXTURE_2D, textureID);
 	glPixelStorei(GL_UNPACK_ALIGNMENT,1);	
 	
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+
+    
 	unsigned int blockSize = (format == GL_COMPRESSED_RGBA_S3TC_DXT1_EXT) ? 8 : 16; 
 	unsigned int offset = 0;
 
@@ -216,3 +220,36 @@ GLuint loadDDS(const char * imagepath){
 
 
 }
+
+#include "lodepng.h"
+
+GLuint loadPNG(const char * filename){
+    
+    std::vector<unsigned char> data;
+    unsigned width, height;
+    unsigned error = lodepng::decode(data, width, height, filename);
+    
+    if(error != 0){
+        fprintf(stderr, "[PNG] error: %s", lodepng_error_text(error));
+        return 1;
+    }
+    
+    // Create one OpenGL texture
+    GLuint textureID;
+    glGenTextures(1, &textureID);
+    glBindTexture(GL_TEXTURE_2D, textureID);
+    
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0,
+                 GL_RGBA, GL_UNSIGNED_BYTE, &data[0]);
+    
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+    
+    glGenerateMipmap(GL_TEXTURE_2D);
+    
+    return textureID;
+}
+
+

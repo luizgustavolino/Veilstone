@@ -43,6 +43,19 @@ using namespace glm;
 
 @implementation MainRenderer
 
++ (id)shared {
+    static MainRenderer *sharedManager = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedManager = [[self alloc] init];
+    });
+    return sharedManager;
+}
+
+-(CGSize) windowSize{
+    return CGSizeMake(windowWidth, windowHeight);
+}
+
 -(int) runInFullscreen:(bool) full w:(int) dw h:(int) dh{
     
     fprintf(stderr, "[Renderer] Will take control\n");
@@ -102,8 +115,8 @@ using namespace glm;
     }
     
     // Certifica que conseguiremos capturar o ESC
-    glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
-    glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+    //glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
+    //glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
     
     // Set the mouse at the center of the screen
     glfwPollEvents();
@@ -111,16 +124,13 @@ using namespace glm;
     
     // Fundo azul escuro
     glClearColor(0.2f, 0.2f, 0.65f, 0.0f);
-    
-
-    
     glGenVertexArrays(1, &VertexArrayID);
     glBindVertexArray(VertexArrayID);
     
     renders = [@[[HUDRenderer new]] retain];
     
     for (Renderer* render in renders) [render onLoad];
-    for (Renderer* render in renders) [render chargeBuffers];
+    for (Renderer* render in renders) [render onChargeBuffers];
     
     return YES;
 }

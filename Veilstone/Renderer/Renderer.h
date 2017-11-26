@@ -13,6 +13,7 @@
 #import <glm/glm.hpp>
 
 @interface Renderer : NSObject{
+    
     GLuint vertexbuffer;
     GLuint uvbuffer;
     GLuint normalbuffer;
@@ -24,16 +25,19 @@
     std::vector<unsigned int> indices;
     
     GLuint shaderProgramID;
+    
+    GLuint texture;
+    GLuint textureID;
 }
 
 // Gameloop
-
 -(void) onLoad;
+-(void) onChargeBuffers;
 -(void) onFrameNum:(int) frameCount;
 -(void) onExit;
 
 // Helpers
--(void) chargeBuffers;
 -(void) loadShadersNamed:(NSString*) name;
+-(void) loadTextureNamed:(NSString*) name;
 
 @end

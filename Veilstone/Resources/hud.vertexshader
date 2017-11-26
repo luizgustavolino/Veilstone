@@ -1,16 +1,19 @@
 #version 330 core
 
-// Input data
-layout(location = 0) in vec3 pxy;
+layout(location = 0) in vec3 pXY;
+layout(location = 1) in vec2 vertexUV;
+
+out vec2 UV;
 
 void main(){
 
-    //vec2 vertexPosition_homoneneousspace = vertexPosition_screenspace - vec2(360,225);
-    //vertexPosition_homoneneousspace /= vec2(360,225);
-    //gl_Position =  vec4(vertexPosition_homoneneousspace,0,1);
-    //UV = vertexUV;
-    
-    gl_Position.xyz = pxy;
+    // 960 -> 480
+    vec2 onScreen = vec2(pXY) - vec2(480, 300);
+    onScreen /= vec2(480, 300);
+
+    gl_Position.xyz = vec3(onScreen, 0);
     gl_Position.w = 1.0;
+    
+    UV = vertexUV;
 }
 

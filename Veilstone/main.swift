@@ -10,7 +10,7 @@ import Foundation
 
 class Veilstone : NSObject{
     
-    let renderer = MainRenderer()
+    let renderer = MainRenderer.shared()!
     let joystick = JoystickController()
     
     let size = 30
@@ -33,7 +33,7 @@ class Veilstone : NSObject{
         renderer.delegate = self
         
         joystick.setup()
-        renderer.run(inFullscreen: false, w: 1440/2, h: 900/2)
+        renderer.run(inFullscreen: false, w: 960, h: 600)
         
     }
 }

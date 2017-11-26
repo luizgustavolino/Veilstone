@@ -23,7 +23,10 @@
 
 @property (nonatomic, assign) id<MainRendererDelegate> delegate;
 
++(MainRenderer*) shared;
 -(int) runInFullscreen:(bool) full w:(int) dw h:(int) dh;
 -(void) reload;
+
+-(CGSize) windowSize;
 
 @end

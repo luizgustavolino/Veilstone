@@ -7,9 +7,9 @@
 //
 
 #import "Renderer.h"
+
 #include "common/shader.hpp"
-
-
+#include "common/texture.hpp"
 
 @implementation Renderer
 
@@ -17,7 +17,7 @@
     
 }
 
--(void) chargeBuffers{
+-(void) onChargeBuffers{
     
     // load vertexbuffer
     if(!vertices.empty()){
@@ -86,14 +86,20 @@
     if(!uvs.empty()) {
         glEnableVertexAttribArray(2);
         glBindBuffer(GL_ARRAY_BUFFER, uvbuffer);
-        glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, (void*)0 );
+        glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 0, (void*)0 );
     }
     
     // Bind element buffer
     if(!indices.empty()) {
         glEnableVertexAttribArray(3);
         glBindBuffer(GL_ARRAY_BUFFER, elementbuffer);
-        glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, (void*)0 );
+        glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, 0, (void*)0 );
+    }
+    
+    if(textureID != -1) {
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, texture);
+        glUniform1i(textureID, 0);
     }
     
     // // Draw calls
@@ -120,9 +126,13 @@
 }
 
 
-
-
 -(void) loadTextureNamed:(NSString*) name{
+    
+    NSString *path = [NSString stringWithFormat:@"res/%@.png", name];
+    const char * file = [path cStringUsingEncoding:NSUTF8StringEncoding];
+    
+    texture     = loadPNG(file);
+    textureID   = glGetUniformLocation(shaderProgramID, "sampler");
     
 }
 

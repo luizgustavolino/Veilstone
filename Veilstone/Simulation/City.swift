@@ -509,7 +509,12 @@ struct City{
         newE.cityImpact = e.cityImpact
         newE.energyDemand = e.energyDemand
         newE.waterDemand = e.waterDemand
-        newE.jobs = e.jobs
+        var newJobs = [Job]()
+        for job in e.jobs{
+            let newJob = Job(minSchooling: job.minSchooling)
+            newJobs.append(newJob)
+        }
+        newE.jobs = newJobs
         newE.moradias = e.moradias
         newE.classe = e.classe
         newE.moradiasLeft = e.moradias
@@ -595,7 +600,12 @@ struct City{
             newE.cityImpact = e.cityImpact
             newE.energyDemand = e.energyDemand
             newE.waterDemand = e.waterDemand
-            newE.jobs = e.jobs
+            var newJobs = [Job]()
+            for job in e.jobs{
+                let newJob = Job(minSchooling: job.minSchooling)
+                newJobs.append(newJob)
+            }
+            newE.jobs = newJobs
             newE.moradias = e.moradias
             newE.classe = e.classe
             newE.moradiasLeft = e.moradias

@@ -65,6 +65,11 @@ using namespace glm;
     return [[self delegate] currentWaterSupply];
 }
 
+-(void) shouldChooseNextBuilding{
+    NSArray *options = [[self delegate] options];
+    [[self delegate] didChooseCardWithBuildingID:[options[0] intValue]];
+}
+
 -(int) runInFullscreen:(bool) full w:(int) dw h:(int) dh{
     
     fprintf(stderr, "[Renderer] Will take control\n");
@@ -81,6 +86,10 @@ using namespace glm;
 
 -(BOOL) shoudExit{
     return !(glfwGetKey(window, GLFW_KEY_ESCAPE) != GLFW_PRESS && glfwWindowShouldClose(window) == 0);
+}
+
+-(void) reload{
+    
 }
 
 -(BOOL) loadInFullscreen:(bool) full w:(int) dw h:(int) dh{
@@ -113,7 +122,7 @@ using namespace glm;
     // Salva o tamanho real da janela
     windowWidth     = dw;
     windowHeight    = dh;
-    glfwGetFramebufferSize(window, &windowWidth, &windowHeight);
+    //glfwGetFramebufferSize(window, &windowWidth, &windowHeight);
     
     // Inicializa o GLEW
     glewExperimental = true;

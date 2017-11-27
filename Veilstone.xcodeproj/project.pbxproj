@@ -7,7 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2702F1181FC59A67002B79C9 /* magika.dds in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2702F1121FC599C5002B79C9 /* magika.dds */; };
+		1B481FF31FCB98B300C1FA24 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B481FF21FCB98B300C1FA24 /* City.swift */; };
+		1B481FF51FCB98EB00C1FA24 /* Establishment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B481FF41FCB98EB00C1FA24 /* Establishment.swift */; };
+		1B481FF71FCB98F600C1FA24 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B481FF61FCB98F600C1FA24 /* Person.swift */; };
+		1B481FF91FCB990800C1FA24 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B481FF81FCB990800C1FA24 /* Job.swift */; };
+		1B481FFE1FCB9A4D00C1FA24 /* establishments.csv in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1B481FFC1FCB9A0E00C1FA24 /* establishments.csv */; };
+		1B481FFF1FCB9A4D00C1FA24 /* initialConfig.csv in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1B481FFB1FCB9A0E00C1FA24 /* initialConfig.csv */; };
+		1B48200B1FCBA10C00C1FA24 /* build13.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1B4820011FCBA0F900C1FA24 /* build13.obj */; };
+		1B48200C1FCBA10C00C1FA24 /* build14.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1B4820091FCBA0FB00C1FA24 /* build14.obj */; };
+		1B48200D1FCBA10C00C1FA24 /* build15.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1B4820001FCBA0F900C1FA24 /* build15.obj */; };
+		1B48200E1FCBA10C00C1FA24 /* build16.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1B4820021FCBA0F900C1FA24 /* build16.obj */; };
+		1B48200F1FCBA10C00C1FA24 /* build17.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1B4820081FCBA0FB00C1FA24 /* build17.obj */; };
+		1B4820101FCBA10C00C1FA24 /* build18.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1B4820031FCBA0F900C1FA24 /* build18.obj */; };
+		1B4820111FCBA10C00C1FA24 /* build19.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1B4820051FCBA0FA00C1FA24 /* build19.obj */; };
+		1B4820121FCBA10C00C1FA24 /* build20.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1B4820061FCBA0FA00C1FA24 /* build20.obj */; };
+		1B4820131FCBA10C00C1FA24 /* build21.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1B4820071FCBA0FA00C1FA24 /* build21.obj */; };
+		1B4820141FCBA10C00C1FA24 /* build22.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1B4820041FCBA0FA00C1FA24 /* build22.obj */; };
+		1B4820151FCBA10C00C1FA24 /* build23.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1B48200A1FCBA0FB00C1FA24 /* build23.obj */; };
 		2702F1191FC59A67002B79C9 /* magika.mtl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2702F1111FC599C5002B79C9 /* magika.mtl */; };
 		2702F11C1FC59F2B002B79C9 /* ModelCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2702F11B1FC59F2B002B79C9 /* ModelCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		2702F1221FC5A8C4002B79C9 /* build0.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2702F11E1FC5A7FD002B79C9 /* build0.obj */; };
@@ -55,13 +71,23 @@
 		27B9C3E61FCB2643003926D5 /* vox.vertexshader in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27B9C3E41FCB261E003926D5 /* vox.vertexshader */; };
 		27B9C3EB1FCB4549003926D5 /* HUDSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 27B9C3EA1FCB4549003926D5 /* HUDSprite.m */; };
 		27B9C3FB1FCB53BE003926D5 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 27B9C3FA1FCB53BD003926D5 /* libz.tbd */; };
-		27B9C4001FCB5563003926D5 /* cards.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27B9C3FF1FCB555E003926D5 /* cards.png */; };
 		27B9C4031FCB5B6C003926D5 /* lodepng.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27B9C4021FCB5B6C003926D5 /* lodepng.cpp */; };
 		27B9C4051FCB747F003926D5 /* texture.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27B9C4041FCB7472003926D5 /* texture.png */; };
 		27B9C4071FCB8466003926D5 /* magika.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27B9C4061FCB845B003926D5 /* magika.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		1B481FFD1FCB9A2C00C1FA24 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = csv;
+			dstSubfolderSpec = 16;
+			files = (
+				1B481FFE1FCB9A4D00C1FA24 /* establishments.csv in CopyFiles */,
+				1B481FFF1FCB9A4D00C1FA24 /* initialConfig.csv in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		270701091FCA51A1003C6A4B /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 8;
@@ -80,9 +106,19 @@
 			dstPath = res;
 			dstSubfolderSpec = 16;
 			files = (
+				1B48200B1FCBA10C00C1FA24 /* build13.obj in CopyFiles */,
+				1B48200C1FCBA10C00C1FA24 /* build14.obj in CopyFiles */,
+				1B48200D1FCBA10C00C1FA24 /* build15.obj in CopyFiles */,
+				1B48200E1FCBA10C00C1FA24 /* build16.obj in CopyFiles */,
+				1B48200F1FCBA10C00C1FA24 /* build17.obj in CopyFiles */,
+				1B4820101FCBA10C00C1FA24 /* build18.obj in CopyFiles */,
+				1B4820111FCBA10C00C1FA24 /* build19.obj in CopyFiles */,
+				1B4820121FCBA10C00C1FA24 /* build20.obj in CopyFiles */,
+				1B4820131FCBA10C00C1FA24 /* build21.obj in CopyFiles */,
+				1B4820141FCBA10C00C1FA24 /* build22.obj in CopyFiles */,
+				1B4820151FCBA10C00C1FA24 /* build23.obj in CopyFiles */,
 				27B9C4071FCB8466003926D5 /* magika.png in CopyFiles */,
 				27B9C4051FCB747F003926D5 /* texture.png in CopyFiles */,
-				27B9C4001FCB5563003926D5 /* cards.png in CopyFiles */,
 				27B9C3E51FCB2643003926D5 /* vox.fragmentshader in CopyFiles */,
 				27B9C3E61FCB2643003926D5 /* vox.vertexshader in CopyFiles */,
 				27B9C3D61FCA6DDB003926D5 /* hud.vertexshader in CopyFiles */,
@@ -99,7 +135,6 @@
 				2702F1221FC5A8C4002B79C9 /* build0.obj in CopyFiles */,
 				2702F1231FC5A8C4002B79C9 /* build1.obj in CopyFiles */,
 				2702F1241FC5A8C4002B79C9 /* build10.obj in CopyFiles */,
-				2702F1181FC59A67002B79C9 /* magika.dds in CopyFiles */,
 				2702F1191FC59A67002B79C9 /* magika.mtl in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -107,8 +142,24 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1B481FF21FCB98B300C1FA24 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
+		1B481FF41FCB98EB00C1FA24 /* Establishment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Establishment.swift; sourceTree = "<group>"; };
+		1B481FF61FCB98F600C1FA24 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		1B481FF81FCB990800C1FA24 /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
+		1B481FFB1FCB9A0E00C1FA24 /* initialConfig.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = initialConfig.csv; sourceTree = "<group>"; };
+		1B481FFC1FCB9A0E00C1FA24 /* establishments.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = establishments.csv; sourceTree = "<group>"; };
+		1B4820001FCBA0F900C1FA24 /* build15.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = build15.obj; sourceTree = "<group>"; };
+		1B4820011FCBA0F900C1FA24 /* build13.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = build13.obj; sourceTree = "<group>"; };
+		1B4820021FCBA0F900C1FA24 /* build16.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = build16.obj; sourceTree = "<group>"; };
+		1B4820031FCBA0F900C1FA24 /* build18.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = build18.obj; sourceTree = "<group>"; };
+		1B4820041FCBA0FA00C1FA24 /* build22.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = build22.obj; sourceTree = "<group>"; };
+		1B4820051FCBA0FA00C1FA24 /* build19.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = build19.obj; sourceTree = "<group>"; };
+		1B4820061FCBA0FA00C1FA24 /* build20.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = build20.obj; sourceTree = "<group>"; };
+		1B4820071FCBA0FA00C1FA24 /* build21.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = build21.obj; sourceTree = "<group>"; };
+		1B4820081FCBA0FB00C1FA24 /* build17.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = build17.obj; sourceTree = "<group>"; };
+		1B4820091FCBA0FB00C1FA24 /* build14.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = build14.obj; sourceTree = "<group>"; };
+		1B48200A1FCBA0FB00C1FA24 /* build23.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = build23.obj; sourceTree = "<group>"; };
 		2702F1111FC599C5002B79C9 /* magika.mtl */ = {isa = PBXFileReference; lastKnownFileType = text; path = magika.mtl; sourceTree = "<group>"; };
-		2702F1121FC599C5002B79C9 /* magika.dds */ = {isa = PBXFileReference; lastKnownFileType = file; path = magika.dds; sourceTree = "<group>"; };
 		2702F11A1FC59F2B002B79C9 /* ModelCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModelCache.h; sourceTree = "<group>"; };
 		2702F11B1FC59F2B002B79C9 /* ModelCache.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = ModelCache.m; sourceTree = "<group>"; };
 		2702F11E1FC5A7FD002B79C9 /* build0.obj */ = {isa = PBXFileReference; explicitFileType = text; path = build0.obj; sourceTree = "<group>"; };
@@ -493,7 +544,6 @@
 		27B9C3F71FCB5373003926D5 /* pngconf.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pngconf.h; sourceTree = "<group>"; };
 		27B9C3F81FCB5373003926D5 /* png.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = png.h; sourceTree = "<group>"; };
 		27B9C3FA1FCB53BD003926D5 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
-		27B9C3FF1FCB555E003926D5 /* cards.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cards.png; sourceTree = "<group>"; };
 		27B9C4011FCB5B6C003926D5 /* lodepng.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lodepng.h; sourceTree = "<group>"; };
 		27B9C4021FCB5B6C003926D5 /* lodepng.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lodepng.cpp; sourceTree = "<group>"; };
 		27B9C4041FCB7472003926D5 /* texture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = texture.png; sourceTree = "<group>"; };
@@ -516,6 +566,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B481FF11FCB989E00C1FA24 /* Simulation */ = {
+			isa = PBXGroup;
+			children = (
+				1B481FF21FCB98B300C1FA24 /* City.swift */,
+				1B481FF41FCB98EB00C1FA24 /* Establishment.swift */,
+				1B481FF61FCB98F600C1FA24 /* Person.swift */,
+				1B481FF81FCB990800C1FA24 /* Job.swift */,
+			);
+			path = Simulation;
+			sourceTree = "<group>";
+		};
+		1B481FFA1FCB99E000C1FA24 /* CSV */ = {
+			isa = PBXGroup;
+			children = (
+				1B481FFC1FCB9A0E00C1FA24 /* establishments.csv */,
+				1B481FFB1FCB9A0E00C1FA24 /* initialConfig.csv */,
+			);
+			path = CSV;
+			sourceTree = "<group>";
+		};
 		2738E5421FC2377D00D17C22 = {
 			isa = PBXGroup;
 			children = (
@@ -536,6 +606,8 @@
 		2738E54D1FC2377D00D17C22 /* Veilstone */ = {
 			isa = PBXGroup;
 			children = (
+				1B481FFA1FCB99E000C1FA24 /* CSV */,
+				1B481FF11FCB989E00C1FA24 /* Simulation */,
 				2738E6AB1FC26B5200D17C22 /* Models */,
 				2738E6A21FC25E0300D17C22 /* Resources */,
 				2738E6731FC23AC800D17C22 /* Joystick */,
@@ -973,6 +1045,17 @@
 		2738E6AB1FC26B5200D17C22 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1B4820011FCBA0F900C1FA24 /* build13.obj */,
+				1B4820091FCBA0FB00C1FA24 /* build14.obj */,
+				1B4820001FCBA0F900C1FA24 /* build15.obj */,
+				1B4820021FCBA0F900C1FA24 /* build16.obj */,
+				1B4820081FCBA0FB00C1FA24 /* build17.obj */,
+				1B4820031FCBA0F900C1FA24 /* build18.obj */,
+				1B4820051FCBA0FA00C1FA24 /* build19.obj */,
+				1B4820061FCBA0FA00C1FA24 /* build20.obj */,
+				1B4820071FCBA0FA00C1FA24 /* build21.obj */,
+				1B4820041FCBA0FA00C1FA24 /* build22.obj */,
+				1B48200A1FCBA0FB00C1FA24 /* build23.obj */,
 				278979451FC5B81500D4F012 /* 5x25xgreen.obj */,
 				278979431FC5B81500D4F012 /* 5x25xroad.obj */,
 				278979461FC5B81500D4F012 /* 25x5xgreen.obj */,
@@ -985,11 +1068,9 @@
 				2702F11F1FC5A7FD002B79C9 /* build10.obj */,
 				273C9E2B1FC83764003B10AA /* build11.obj */,
 				273C9E2D1FC83E33003B10AA /* build12.obj */,
-				2702F1121FC599C5002B79C9 /* magika.dds */,
 				2702F1111FC599C5002B79C9 /* magika.mtl */,
 				27B9C4061FCB845B003926D5 /* magika.png */,
 				27B9C4041FCB7472003926D5 /* texture.png */,
-				27B9C3FF1FCB555E003926D5 /* cards.png */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1076,6 +1157,7 @@
 				2738E5481FC2377D00D17C22 /* Frameworks */,
 				2738E5491FC2377D00D17C22 /* CopyFiles */,
 				270701091FCA51A1003C6A4B /* CopyFiles */,
+				1B481FFD1FCB9A2C00C1FA24 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -1135,15 +1217,19 @@
 				2738E6841FC23AE800D17C22 /* JSAction.m in Sources */,
 				2738E6A01FC2527D00D17C22 /* vboindexer.cpp in Sources */,
 				27B9C4031FCB5B6C003926D5 /* lodepng.cpp in Sources */,
+				1B481FF71FCB98F600C1FA24 /* Person.swift in Sources */,
+				1B481FF51FCB98EB00C1FA24 /* Establishment.swift in Sources */,
 				27B9C3DF1FCB17BD003926D5 /* Renderer.m in Sources */,
 				2738E69D1FC2527D00D17C22 /* controls.cpp in Sources */,
 				2738E6831FC23AE800D17C22 /* SubAction.m in Sources */,
 				2738E69B1FC2527D00D17C22 /* text2D.cpp in Sources */,
+				1B481FF31FCB98B300C1FA24 /* City.swift in Sources */,
 				2738E6871FC23AE800D17C22 /* Joystick.m in Sources */,
 				2738E6861FC23AE800D17C22 /* JSActionButton.m in Sources */,
 				27B9C3E21FCB1DC2003926D5 /* CityRenderer.m in Sources */,
 				2738E69E1FC2527D00D17C22 /* quaternion_utils.cpp in Sources */,
 				27B9C3DC1FCB1648003926D5 /* HUDRenderer.m in Sources */,
+				1B481FF91FCB990800C1FA24 /* Job.swift in Sources */,
 				2738E6881FC23AE800D17C22 /* JoystickController.m in Sources */,
 				2738E69C1FC2527D00D17C22 /* texture.cpp in Sources */,
 				2738E68C1FC2516A00D17C22 /* objloader.cpp in Sources */,
@@ -1265,7 +1351,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8372T62SAN;
+				DEVELOPMENT_TEAM = E6AL7RL5XU;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Veilstone/Renderer/include",
@@ -1275,7 +1361,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Veilstone/Renderer/lib",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Veilstone/Veilstone-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1288,7 +1374,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8372T62SAN;
+				DEVELOPMENT_TEAM = E6AL7RL5XU;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Veilstone/Renderer/include",
@@ -1298,7 +1384,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Veilstone/Renderer/lib",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Veilstone/Veilstone-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;

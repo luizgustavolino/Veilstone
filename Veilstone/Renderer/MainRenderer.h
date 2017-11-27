@@ -30,6 +30,8 @@
 -(int) runInFullscreen:(bool) full w:(int) dw h:(int) dh;
 -(void) reload;
 
+-(void) shouldChooseNextBuilding;
+
 -(CGSize) windowSize;
 -(float) currentEnergySupply;
 -(float) currentWaterSupply;

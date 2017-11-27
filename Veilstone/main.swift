@@ -5,6 +5,15 @@
 //  Created by Nilo on 19/11/17.
 //  Copyright © 2017 Nilo. All rights reserved.
 //
+//    renderer.reload()
+//    voce: reload
+//    eu: mapSize, buildingPXPY, options
+//    jogador escolhe
+//    eu: didChooseCard
+//    voce: atualiza matrix
+//    REPETE
+//    WISHLIST:  focar camera em: px py
+
 
 import Foundation
 
@@ -12,29 +21,43 @@ class Veilstone : NSObject{
     
     let renderer = MainRenderer.shared()!
     let joystick = JoystickController()
-    
-    let size = 30
-    var matrix:[[Int]] = []
+    var city = City(size: 10)
+    var nextPos = (x: 0, y: 0)
+    var turns: Int = 5
+
     
     func run(){
-        
-        let itens = [10,11,12]
-        
-        for _ in 1...size{
-            var innerMatrix:[Int] = []
-            for _ in 1...size{
-                let item = Int(itens[Int(arc4random())%itens.count])
-                innerMatrix.append(item)
-            }
-            matrix.append(innerMatrix)
-        }
-        
         joystick.delegate = self
         renderer.delegate = self
         
+        city.updateInterests()
+        city.printInterestMatrix()
         joystick.setup()
         renderer.run(inFullscreen: false, w: 960, h: 600)
+        nextSimulation()
+    }
+    
+    func nextSimulation(){
+        turns -= 1
+        if(turns == 0){
+            finishSimulation()
+            return
+        }
+        print("-------------------------------------------------------")
         
+        //Criar um criterio pro numero de pessoas
+        let persons = Person.randomPersons(number: 10)
+        city.newPeopleLogic(persons: persons)
+        
+        
+        renderer.reload()
+        nextPos = city.newPos()
+        renderer.shouldChooseNextBuilding()
+    }
+    
+    func finishSimulation(){
+      city.printStats()
+      city.printFinalStats(loops: 5)
     }
 }
 
@@ -52,28 +75,33 @@ extension Veilstone : JoystickControllerDelegate {
 extension Veilstone : MainRendererDelegate {
     
     func currentEnergySupply() -> Float {
-        return 0.5
+        city.servicesStatus()
+        return Float(city.energyNeeded) / Float(city.energy)
     }
     
     func currentWaterSupply() -> Float {
-        return 0.1
+        city.servicesStatus()
+        return Float(city.waterNeeded) / Float(city.water)
     }
     
     func didChooseCard(withBuildingID bid: Int32) {
-        
+        city.newEFromOptions(id: Int(bid), x: nextPos.x, y: nextPos.y)
+        city.updateStats()
+        city.printMatrix()
+        nextSimulation()
     }
     
     func mapSize() -> Int32 {
-        return Int32(size)
+        return Int32(city.size)
     }
     
     func building(forPX px: Int32, py: Int32) -> Int32 {
-        return Int32(matrix[Int(px)][Int(py)])
+        return Int32(city.cityMatrix[Int(px)][Int(py)].buildingID)
     }
     
     func options() -> [NSNumber]! {
         var options:[NSNumber] = []
-        for i in [100,101,102,103] {
+        for i in city.buildOptions() {
             options.append(NSNumber(integerLiteral: i))
         }
         return options
@@ -81,4 +109,5 @@ extension Veilstone : MainRendererDelegate {
 }
 
 Veilstone().run()
+//Veilstone().startSimulation()
 

@@ -1,7 +1,7 @@
 # MagicaVoxel @ Ephtracy
 
 # material
-mtllib build16.mtl
+mtllib build22.mtl
 usemtl palette
 
 # normals
@@ -13,7 +13,7 @@ vn 0 -1 0
 vn 0 1 0
 
 # texcoords
-vt 0.681641 0.5
+vt 0.0332031 0.5
 
 # verts
 v -5.5 0 8.5

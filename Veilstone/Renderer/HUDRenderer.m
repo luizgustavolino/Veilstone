@@ -39,11 +39,11 @@
                               texture:CGRectMake(0, 100, 240, 100)],
      
      // BARRAS
-     [[HUDSprite alloc] initWithFrame:CGRectMake(ww-145, wh-69, 140 * water, 30)
-                              texture:CGRectMake(370, 0, 140 * water, 30)],
+     [[HUDSprite alloc] initWithFrame:CGRectMake(ww-145, wh-69, 20 + 120 * water , 30)
+                              texture:CGRectMake(370, 0, 20 + 120 * water , 30)],
      
-     [[HUDSprite alloc] initWithFrame:CGRectMake(ww-145, wh-67-80, 140 * energy, 30)
-                              texture:CGRectMake(370, 30, 140 * energy, 30)],
+     [[HUDSprite alloc] initWithFrame:CGRectMake(ww-145, wh-67-80, 20 + 120 * energy, 30)
+                              texture:CGRectMake(370, 30, 20 + 120 * energy, 30)],
      
      // ICONES
      [[HUDSprite alloc] initWithFrame:CGRectMake(ww - 240, wh - 100,  120, 100)

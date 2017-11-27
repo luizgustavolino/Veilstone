@@ -17,8 +17,14 @@
 
 using namespace glm;
 
+struct Light {
+    vec3 position;
+    vec3 intensities;
+};
+
 @interface CityRenderer (/*private*/){
     GLuint matrixID;
+    Light gLight;
 }
 
 @end

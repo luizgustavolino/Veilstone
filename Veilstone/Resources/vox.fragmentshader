@@ -1,10 +1,30 @@
 #version 330 core
 
-in vec2  UV;
-out vec4 color;
+in vec2 fragTexCoord;
+in vec3 fragNormal;
+in vec3 fragVert;
+
 
 uniform sampler2D sampler;
 
-void main(){
-    color = texture(sampler, UV).rgba;
+out vec4 finalColor;
+
+void main() {
+    
+    mat4 model = mat4(1);
+    
+    mat3 normalMatrix = transpose(inverse(mat3(model)));
+    vec3 normal = normalize(normalMatrix * fragNormal);
+    
+    vec3 light_position = vec3(200,200,200);
+    vec3 light_intensities = vec3(1.0,1.0,1.0);
+    
+    vec3 fragPosition = vec3(model * vec4(fragVert, 1));
+    vec3 surfaceToLight = light_position - fragPosition;
+    
+    float brightness = dot(normal, surfaceToLight) / (length(surfaceToLight) * length(normal));
+    brightness = 0.5 + clamp(brightness, 0.0, 1.0)/2;
+
+    vec4 surfaceColor = texture(sampler, fragTexCoord);
+    finalColor = vec4(brightness * light_intensities * surfaceColor.rgb, surfaceColor.a);
 }

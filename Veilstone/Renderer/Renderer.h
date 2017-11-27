@@ -45,3 +45,17 @@
 -(void) loadTextureNamed:(NSString*) name;
 
 @end
+
+
+@interface RendererCache : NSObject{
+    NSMutableDictionary* shadersStorage;
+    NSMutableDictionary* texturesStorage;
+    NSMutableDictionary* pngStorage;
+}
+
++(RendererCache*) shared;
+-(GLuint) loadShadersNamed:(NSString*) name;
+-(GLuint) loadPNG:(NSString*) name;
+-(GLuint) loadTextureNamed:(NSString*) name program:(GLuint) shaderProgramID;
+
+@end

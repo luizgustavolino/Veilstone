@@ -78,8 +78,9 @@ using namespace glm;
     // Load, Render, Exit
     
     if(![self loadInFullscreen:full w:dw h:dh]) return -1;
-    do [self render];
-    while (![self shoudExit]);
+    do {
+        [self render];
+    }while (![self shoudExit]);
     return [self exit];
 }
 
@@ -94,8 +95,14 @@ using namespace glm;
 }
 
 -(void) swapRenders{
+    
     NSMutableArray<Renderer*> *old = renders;
     renders = nextRenders;
+    for (Renderer* render in old) {
+        [render onExit];
+        [render release];
+    }
+    
     [old release];
 }
 

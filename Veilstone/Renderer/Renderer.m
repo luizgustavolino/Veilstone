@@ -11,6 +11,9 @@
 #include "common/shader.hpp"
 #include "common/texture.hpp"
 
+
+
+
 @implementation Renderer
 
 -(void) onLoad{
@@ -40,7 +43,7 @@
     }
     
     // load normals
-    if(!normals.empty() && NO){
+    if(!normals.empty()){
         glGenBuffers(1, &normalbuffer);
         glBindBuffer(GL_ARRAY_BUFFER, normalbuffer);
         glBufferData(GL_ARRAY_BUFFER,
@@ -86,7 +89,7 @@
     }
     
     // Bind normals buffer
-    if(!normals.empty() && NO) {
+    if(!normals.empty()) {
         glEnableVertexAttribArray(2);
         glBindBuffer(GL_ARRAY_BUFFER, normalbuffer);
         glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 0, (void*)0 );
@@ -126,11 +129,16 @@
 }
 
 -(void) onExit{
-    if(shaderProgramID) glDeleteProgram(shaderProgramID);
+    
     if(vertexbuffer) glDeleteBuffers(1, &vertexbuffer);
     if(uvbuffer) glDeleteBuffers(1, &uvbuffer);
     if(normalbuffer) glDeleteBuffers(1, &normalbuffer);
     if(elementbuffer) glDeleteBuffers(1, &elementbuffer);
+    
+    vertices.clear();
+    uvs.clear();
+    normals.clear();
+    indices.clear();
 }
 
 -(int) glTextureIndex{
@@ -143,27 +151,87 @@
 
 -(void) loadTextureNamed:(NSString*) name{
     
-    NSString *path = [NSString stringWithFormat:@"res/%@.png", name];
-    const char * file = [path cStringUsingEncoding:NSUTF8StringEncoding];
-    
-    texture     = loadPNG(file);
-    textureID   = glGetUniformLocation(shaderProgramID, "sampler");
+    texture     = [[RendererCache shared] loadPNG:name];
+    textureID   = [[RendererCache shared] loadTextureNamed:name
+                                                   program:shaderProgramID];
     
 }
 
 -(void) loadShadersNamed:(NSString*) name{
+    shaderProgramID = [[RendererCache shared] loadShadersNamed:name];
+}
+
+-(void) dealloc{
+    [super dealloc];
+}
+
+@end
+
+@implementation RendererCache
+
++(RendererCache*) shared {
+    static RendererCache *sharedManager = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedManager = [[self alloc] init];
+    });
+    return sharedManager;
+}
+
+-(id) init{
+    self = [super init];
+    shadersStorage  = [[NSMutableDictionary alloc] init];
+    texturesStorage = [[NSMutableDictionary alloc] init];
+    pngStorage      = [[NSMutableDictionary alloc] init];
+    return self;
+}
+
+-(GLuint) loadShadersNamed:(NSString*) name{
     
-    if (shaderProgramID != 0) {
-        NSLog(@"[erro] Já tem um shader!");
-        exit(-1);
-    }
+    NSNumber *cached = [shadersStorage objectForKey:name];
+    if(cached) return (GLuint) [cached unsignedIntegerValue];
     
-    NSString *vertex = [NSString stringWithFormat:@"res/%@.vertexshader", name];
-    NSString *frag = [NSString stringWithFormat:@"res/%@.fragmentshader", name];
+    NSString *vertex = [NSString
+        stringWithFormat:@"res/%@.vertexshader", name];
+    NSString *frag = [NSString
+        stringWithFormat:@"res/%@.fragmentshader", name];
     
-    shaderProgramID = LoadShaders(
-                [vertex cStringUsingEncoding:NSUTF8StringEncoding],
-                [frag   cStringUsingEncoding:NSUTF8StringEncoding]);
+    GLuint shaderProgramID = LoadShaders(
+        [vertex cStringUsingEncoding:NSUTF8StringEncoding],
+        [frag   cStringUsingEncoding:NSUTF8StringEncoding]);
+    
+    
+    [shadersStorage setObject:[NSNumber
+        numberWithUnsignedInteger:shaderProgramID] forKey:name];
+    
+    return shaderProgramID;
+}
+
+-(GLuint) loadPNG:(NSString*) name {
+    
+    NSNumber *cached = [pngStorage objectForKey:name];
+    if(cached) return (GLuint) [cached unsignedIntegerValue];
+    
+    NSString *path = [NSString stringWithFormat:@"res/%@.png", name];
+    const char * file = [path cStringUsingEncoding:NSUTF8StringEncoding];
+    GLuint texture = loadPNG(file);
+    
+    [pngStorage setObject:[NSNumber
+        numberWithUnsignedInteger:texture] forKey:name];
+    
+    return texture;
+}
+
+-(GLuint) loadTextureNamed:(NSString*) name program:(GLuint) shaderProgramID{
+    
+    NSNumber *cached = [texturesStorage objectForKey:name];
+    if(cached) return (GLuint) [cached unsignedIntegerValue];
+    
+    GLuint textureID  = glGetUniformLocation(shaderProgramID, "sampler");
+    
+    [texturesStorage setObject:[NSNumber
+            numberWithUnsignedInteger:textureID] forKey:name];
+    return textureID;
 }
 
 @end

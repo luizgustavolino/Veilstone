@@ -15,7 +15,12 @@ struct Node{
     var interest: Int = 0
     var establishmentIndex: Int = -1
     
-    init(){}
+    init(){
+        let random = Int(arc4random_uniform(10))
+        if random > 8{
+            buildingID = 1
+        }
+    }
 }
 
 struct City{
@@ -35,7 +40,9 @@ struct City{
     private let waterID: Int = 13
     private let energyIncrease: Int = 25
     private let waterIncrease: Int = 25
-    
+    private var notFoundJob: Int = 0
+    private var noEnergy: Int = 0
+    private var noWater: Int = 0
     
     private var educacao: Double = 0
     private var educacaoPoints: Double = 0
@@ -45,7 +52,7 @@ struct City{
     private var culturaPoints: Double = 0
     private var seguranca: Double = 0
     private var segurancaPoints: Double = 0
-    private let peso: Double = 0.9
+    private let peso: Double = 0.6
     
     init(size: Int){
         self.size = size
@@ -362,38 +369,43 @@ struct City{
         }
     }
     
-    func buildOptions() -> [Int]{
+    mutating func buildOptions() -> [Int]{
         print("Você pode escolher entre: ")
         
         var returnValue = [Int]()
-        let energyIDSelectable = 3
-        let waterIDSelectable = 4
+        //let energyIDSelectable = 3
+        //let waterIDSelectable = 4
         
         if(energyNeeded > energy){
-            for (index, selectable) in selectables.enumerated(){
-                if(selectable.relevancia == energyIDSelectable){
-                    print("Cabou a infra de energia mané, você só pode construir a \(selectable.name)")
-                    returnValue.append(index)
-                    return returnValue
-                }
-            }
-        }else if(waterNeeded > water){
-            for (index, selectable) in selectables.enumerated(){
-                if(selectable.relevancia == waterIDSelectable){
-                    print("Cabou a infra de água mané, você só pode construir a \(selectable.name)")
-                    returnValue.append(index)
-                    return returnValue
-                }
-            }
-        }else{
-            for (index, selectable) in selectables.enumerated(){
-                print("\(selectable.name), que vai melhorar a cidade em: \(impactName(id: selectable.relevancia))")
-                //if !(selectable.relevancia == waterIDSelectable || selectable.relevancia == energyIDSelectable){
-                returnValue.append(index)
-                //}
-            }
+//            for (index, selectable) in selectables.enumerated(){
+//                if(selectable.relevancia == energyIDSelectable){
+//                    print("Acabou a infra de energia, você só pode construir a \(selectable.name)")
+//                    returnValue.append(index)
+//                    return returnValue
+//                }
+//            }
+            noEnergy += 1
+            print("Acabou a infra de energia!")
+        }
+        if(waterNeeded > water){
+//            for (index, selectable) in selectables.enumerated(){
+//                if(selectable.relevancia == waterIDSelectable){
+//                    print("Cabou a infra de água mané, você só pode construir a \(selectable.name)")
+//                    returnValue.append(index)
+//                    return returnValue
+//                }
+//            }
+            noWater += 1
+            print("Acabou a infra de água!")
         }
         
+        for (index, selectable) in selectables.enumerated(){
+            print("\(selectable.name), que vai melhorar a cidade em: \(impactName(id: selectable.relevancia))")
+            //if !(selectable.relevancia == waterIDSelectable || selectable.relevancia == energyIDSelectable){
+            returnValue.append(index)
+            //}
+        }
+   
         return returnValue
     }
     
@@ -432,6 +444,7 @@ struct City{
             }
         }
         print("\(person.name) não achou um lugar para trabalhar")
+        notFoundJob += 1
         return false
     }
     
@@ -560,6 +573,31 @@ struct City{
         print("\(finalSaude) % das pessoas ficaram insatisfeitas com a Saude durante seu mandato")
         print("\(finalCultura) % das pessoas ficaram insatisfeitas com a Cultura durante seu mandato")
         print("\(finalSeguranca) % das pessoas ficaram insatisfeitas com a Seguranca durante seu mandato")
+        print("Número de pessoas: \(persons.count)")
+        print("Número de construções: \(establishments.count)")
+        print("Número de pessoas que não conseguiram um emprego: \(notFoundJob)")
+        
+        if noWater > 0{
+            print("Durante um certo período no seu mandato, o sistema de água ficou sobrecarregado, gerando quedas no abastecimento")
+        }else{
+            print("Sua gestão de água foi excelente!")
+        }
+        
+        
+        if noEnergy > 0{
+            print("Durante um certo período no seu mandato, o sistema de energia ficou sobrecarregado, gerando apagões")
+        }else{
+            print("Sua gestão de energia foi excelente!")
+        }
+        
+        var dict = [String: Double]()
+        dict.updateValue(finalEducacao, forKey: "educacao")
+        dict.updateValue(finalSaude, forKey: "saude")
+        dict.updateValue(finalCultura, forKey: "cultura")
+        dict.updateValue(finalSeguranca, forKey: "seguranca")
+        dict.updateValue(Double(persons.count), forKey: "numPessoas")
+        dict.updateValue(Double(establishments.count), forKey: "numConstrucoes")
+        dict.updateValue(Double(notFoundJob), forKey: "noJobs")
     }
     
     mutating func updateRelevancia(id: Int){

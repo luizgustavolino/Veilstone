@@ -57,7 +57,8 @@ class Veilstone : NSObject{
         print("-------------------------------------------------------")
         
         // Criar um criterio pro numero de pessoas
-        let persons = Person.randomPersons(number: 10)
+        let numPersons = 10 + Int(arc4random_uniform(10))
+        let persons = Person.randomPersons(number: numPersons)
         city.newPeopleLogic(persons: persons)
         nextPos = city.newPos()
         
@@ -77,7 +78,7 @@ class Veilstone : NSObject{
     func finishSimulation(){
       city.printStats()
       city.servicesStatus()
-      city.printFinalStats(loops: 5)
+      city.printFinalStats(loops: 15)
     }
 }
 
@@ -95,11 +96,11 @@ extension Veilstone : JoystickControllerDelegate {
 extension Veilstone : MainRendererDelegate {
     
     func currentEnergySupply() -> Float {
-        return Float(city.energyNeeded) / Float(city.energy)
+        return 1 - Float(city.energyNeeded) / Float(city.energy)
     }
     
     func currentWaterSupply() -> Float {
-        return Float(city.waterNeeded) / Float(city.water)
+        return 1 - Float(city.waterNeeded) / Float(city.water)
     }
     
     func didChooseCard(withBuildingID bid: Int32) {

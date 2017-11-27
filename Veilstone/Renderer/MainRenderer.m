@@ -67,8 +67,8 @@ using namespace glm;
 }
 
 -(void) shouldChooseNextBuilding{
-    NSArray *options = [[self delegate] options];
-    [[self delegate] didChooseCardWithBuildingID:[options[0] intValue]];
+    //NSArray *options = [[self delegate] options];
+    //[[self delegate] didChooseCardWithBuildingID:[options[0] intValue]];
 }
 
 -(int) runInFullscreen:(bool) full w:(int) dw h:(int) dh{

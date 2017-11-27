@@ -12,6 +12,7 @@
 
 @interface HUDRenderer (/*private*/){
     NSMutableArray<HUDSprite*>* sprites;
+    NSMutableArray<HUDSprite*>* cards;
 }
     
 @end
@@ -51,11 +52,39 @@
      [[HUDSprite alloc] initWithFrame:CGRectMake(ww - 240, wh - 180,  120, 100)
                               texture:CGRectMake(250, 100, 120, 100)],
      
-     
-     
+    ]];
+    
+    CGFloat ix = 115;
+    CGFloat dx = 120;
+    CGFloat iy = 0;
+    
+    cards = [NSMutableArray arrayWithArray:@[
+                                               
+       [[HUDSprite alloc] initWithFrame:CGRectMake( ix, iy,  120, 200)
+                             texture:CGRectMake(0, 200, 120, 200)],
+    
+       [[HUDSprite alloc] initWithFrame:CGRectMake( ix + dx*1, iy,  120, 200)
+                             texture:CGRectMake(120, 200, 120, 200)],
+    
+       [[HUDSprite alloc] initWithFrame:CGRectMake( ix + dx*2, iy,  120, 200)
+                             texture:CGRectMake(120*2, 200, 120, 200)],
+    
+       [[HUDSprite alloc] initWithFrame:CGRectMake( ix + dx*3, iy,  120, 200)
+                             texture:CGRectMake(120*3, 200, 120, 200)],
+    
+       [[HUDSprite alloc] initWithFrame:CGRectMake( ix + dx*4, iy,  120, 200)
+                             texture:CGRectMake(120*4, 200, 120, 200)],
+    
+       [[HUDSprite alloc] initWithFrame:CGRectMake( ix + dx*5, iy,  120, 200)
+                             texture:CGRectMake(120*5, 200, 120, 200)]
     ]];
 
     for(HUDSprite* sprite in sprites) {
+        for(glm::vec3 v : sprite.vertices) vertices.push_back(v);
+        for(glm::vec2 uv : sprite.uvs) uvs.push_back(uv);
+    }
+    
+    for(HUDSprite* sprite in cards) {
         for(glm::vec3 v : sprite.vertices) vertices.push_back(v);
         for(glm::vec2 uv : sprite.uvs) uvs.push_back(uv);
     }
@@ -77,11 +106,9 @@
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glEnable(GL_BLEND);
     glDisable(GL_ALPHA_TEST);
-    
-    [super onFrameNum:frameCount];
-    
-}
 
+    [super onFrameNum:frameCount];
+}
 
 @end
 

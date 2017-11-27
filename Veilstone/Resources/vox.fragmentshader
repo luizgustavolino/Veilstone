@@ -23,7 +23,7 @@ void main() {
     vec3 surfaceToLight = light_position - fragPosition;
     
     float brightness = dot(normal, surfaceToLight) / (length(surfaceToLight) * length(normal));
-    brightness = 0.5 + clamp(brightness, 0.0, 1.0)/2;
+    brightness = 0.3 + clamp(brightness, 0.0, 1.0)/1.4;
 
     vec4 surfaceColor = texture(sampler, fragTexCoord);
     finalColor = vec4(brightness * light_intensities * surfaceColor.rgb, surfaceColor.a);

@@ -210,8 +210,7 @@ using namespace glm;
         
         if(selection != -1){
             NSArray *options = [[self delegate] options];
-            [[self delegate]
-             didChooseCardWithBuildingID:[options[selection] intValue]];
+            [[self delegate] didChooseCardWithBuildingID:[options[selection] intValue]];
             
             waitingCardSelection = false;
         }

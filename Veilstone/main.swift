@@ -21,7 +21,7 @@ class Veilstone : NSObject{
     
     let renderer = MainRenderer.shared()!
     let joystick = JoystickController()
-    var city = City(size: 25)
+    var city = City(size: 10)
     
     var nextPos = (x: 0, y: 0)
     var turns: Int = 15

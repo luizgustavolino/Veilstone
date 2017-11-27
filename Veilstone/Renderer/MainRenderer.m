@@ -38,6 +38,8 @@ using namespace glm;
     int nbFrames;
     GLuint VertexArrayID;
     
+    BOOL waitingCardSelection;
+    
     NSMutableArray<Renderer*> *renders;
     NSMutableArray<Renderer*> *nextRenders;
 }
@@ -67,8 +69,7 @@ using namespace glm;
 }
 
 -(void) shouldChooseNextBuilding{
-    //NSArray *options = [[self delegate] options];
-    //[[self delegate] didChooseCardWithBuildingID:[options[0] intValue]];
+    waitingCardSelection = YES;
 }
 
 -(int) runInFullscreen:(bool) full w:(int) dw h:(int) dh{
@@ -80,6 +81,7 @@ using namespace glm;
     if(![self loadInFullscreen:full w:dw h:dh]) return -1;
     do {
         [self render];
+        [self update];
     }while (![self shoudExit]);
     return [self exit];
 }
@@ -136,7 +138,6 @@ using namespace glm;
     // Salva o tamanho real da janela
     windowWidth     = dw;
     windowHeight    = dh;
-    //glfwGetFramebufferSize(window, &windowWidth, &windowHeight);
     
     // Inicializa o GLEW
     glewExperimental = true;
@@ -147,7 +148,7 @@ using namespace glm;
     }
     
     // Certifica que conseguiremos capturar o ESC
-    glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
+    
     glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
     
     // Set the mouse at the center of the screen
@@ -184,6 +185,37 @@ using namespace glm;
     // Swap buffers
     glfwSwapBuffers(window);
     glfwPollEvents();
+    
+}
+
+-(void) update{
+    
+    if(waitingCardSelection) {
+        
+        int selection = -1;
+        
+        if (glfwGetKey( window, GLFW_KEY_1 ) == GLFW_PRESS){
+            selection = 0;
+        }else if (glfwGetKey( window, GLFW_KEY_2 ) == GLFW_PRESS){
+            selection = 1;
+        }else if (glfwGetKey( window, GLFW_KEY_3 ) == GLFW_PRESS){
+            selection = 2;
+        }else if (glfwGetKey( window, GLFW_KEY_4 ) == GLFW_PRESS){
+            selection = 3;
+        }else if (glfwGetKey( window, GLFW_KEY_5 ) == GLFW_PRESS){
+            selection = 4;
+        }else if (glfwGetKey( window, GLFW_KEY_6 ) == GLFW_PRESS){
+            selection = 5;
+        }
+        
+        if(selection != -1){
+            NSArray *options = [[self delegate] options];
+            [[self delegate]
+             didChooseCardWithBuildingID:[options[selection] intValue]];
+            
+            waitingCardSelection = false;
+        }
+    }
     
 }
 

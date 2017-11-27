@@ -24,7 +24,7 @@ class Veilstone : NSObject{
     var city = City(size: 10)
     
     var nextPos = (x: 0, y: 0)
-    var turns: Int = 15
+    var turns: Int = 18
     
     let bg = DispatchQueue(label: "bg")
     
@@ -36,7 +36,7 @@ class Veilstone : NSObject{
         city.updateInterests()
         city.printInterestMatrix()
         
-        bg.asyncAfter(deadline: .now() + 1.0){
+        bg.asyncAfter(deadline: .now() + 1.2){
             self.nextSimulation()
         }
         
@@ -68,9 +68,6 @@ class Veilstone : NSObject{
             self.renderer.swapRenders()
         }
         
-        // OLHA AI A CIDADE, parça
-        Thread.sleep(forTimeInterval: 3)
-        
         // espera nova carta
         renderer.shouldChooseNextBuilding()
     }
@@ -96,11 +93,11 @@ extension Veilstone : JoystickControllerDelegate {
 extension Veilstone : MainRendererDelegate {
     
     func currentEnergySupply() -> Float {
-        return 1 - Float(city.energyNeeded) / Float(city.energy)
+        return max(0, min(1, 1 - Float(city.energyNeeded) / Float(city.energy)))
     }
     
     func currentWaterSupply() -> Float {
-        return 1 - Float(city.waterNeeded) / Float(city.water)
+        return max(0, min(1, 1 - Float(city.waterNeeded) / Float(city.water)))
     }
     
     func didChooseCard(withBuildingID bid: Int32) {

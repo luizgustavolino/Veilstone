@@ -35,6 +35,10 @@
 -(void) onChargeBuffers;
 -(void) onFrameNum:(int) frameCount;
 -(void) onExit;
+-(void) beforeBinds;
+
+-(int) glTextureIndex;
+-(int) glTextureName;
 
 // Helpers
 -(void) loadShadersNamed:(NSString*) name;

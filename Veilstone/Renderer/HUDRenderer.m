@@ -28,6 +28,9 @@
     CGFloat ww  = size.width;
     CGFloat wh  = size.height;
     
+    float water = [[MainRenderer shared] currentWaterSupply];
+    float energy = [[MainRenderer shared] currentEnergySupply];
+    
     sprites = [NSMutableArray arrayWithArray:@[
      // FUNDOS
      [[HUDSprite alloc] initWithFrame:CGRectMake(ww - 240, wh - 100,  240, 100)
@@ -36,11 +39,11 @@
                               texture:CGRectMake(0, 100, 240, 100)],
      
      // BARRAS
-     [[HUDSprite alloc] initWithFrame:CGRectMake(ww - 170, wh - 69,  140, 30)
-                              texture:CGRectMake(370, 0, 140, 30)],
+     [[HUDSprite alloc] initWithFrame:CGRectMake(ww-145, wh-69, 140 * water, 30)
+                              texture:CGRectMake(370, 0, 140 * water, 30)],
      
-     [[HUDSprite alloc] initWithFrame:CGRectMake(ww - 170, wh - 67 - 80,  140, 30)
-                              texture:CGRectMake(370, 30, 140, 30)],
+     [[HUDSprite alloc] initWithFrame:CGRectMake(ww-145, wh-67-80, 140 * energy, 30)
+                              texture:CGRectMake(370, 30, 140 * energy, 30)],
      
      // ICONES
      [[HUDSprite alloc] initWithFrame:CGRectMake(ww - 240, wh - 100,  120, 100)
@@ -57,6 +60,14 @@
         for(glm::vec2 uv : sprite.uvs) uvs.push_back(uv);
     }
     
+}
+
+-(int) glTextureIndex{
+    return 1;
+}
+
+-(int) glTextureName{
+    return GL_TEXTURE1;
 }
 
 -(void) onFrameNum:(int)frameCount{

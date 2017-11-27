@@ -15,6 +15,9 @@
 -(void) didChooseCardWithBuildingID:(int) bid;
 -(NSArray<NSNumber*>*) options;
 
+-(float) currentEnergySupply;
+-(float) currentWaterSupply;
+
 @end
 
 @interface MainRenderer : NSObject {
@@ -28,5 +31,7 @@
 -(void) reload;
 
 -(CGSize) windowSize;
+-(float) currentEnergySupply;
+-(float) currentWaterSupply;
 
 @end

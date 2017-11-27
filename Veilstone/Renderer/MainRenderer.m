@@ -26,6 +26,7 @@
 #import "ModelCache.h"
 #import "Renderer.h"
 #import "HUDRenderer.h"
+#import "CityRenderer.h"
 
 GLFWwindow* window;
 using namespace glm;
@@ -54,6 +55,14 @@ using namespace glm;
 
 -(CGSize) windowSize{
     return CGSizeMake(windowWidth, windowHeight);
+}
+
+-(float) currentEnergySupply{
+    return [[self delegate] currentEnergySupply];
+}
+
+-(float) currentWaterSupply{
+    return [[self delegate] currentWaterSupply];
 }
 
 -(int) runInFullscreen:(bool) full w:(int) dw h:(int) dh{
@@ -115,8 +124,8 @@ using namespace glm;
     }
     
     // Certifica que conseguiremos capturar o ESC
-    //glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
-    //glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+    glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
+    glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
     
     // Set the mouse at the center of the screen
     glfwPollEvents();
@@ -127,7 +136,7 @@ using namespace glm;
     glGenVertexArrays(1, &VertexArrayID);
     glBindVertexArray(VertexArrayID);
     
-    renders = [@[[HUDRenderer new]] retain];
+    renders = [@[[CityRenderer new], [HUDRenderer new]] retain];
     
     for (Renderer* render in renders) [render onLoad];
     for (Renderer* render in renders) [render onChargeBuffers];

@@ -40,7 +40,7 @@
     }
     
     // load normals
-    if(!normals.empty()){
+    if(!normals.empty() && NO){
         glGenBuffers(1, &normalbuffer);
         glBindBuffer(GL_ARRAY_BUFFER, normalbuffer);
         glBufferData(GL_ARRAY_BUFFER,
@@ -48,8 +48,8 @@
                      &normals[0], GL_STATIC_DRAW);
     }
     
-    // load normals
-    if(!indices.empty()){
+    // load indices
+    if(!indices.empty() && NO){
         glGenBuffers(1, &elementbuffer);
         glBindBuffer(GL_ARRAY_BUFFER, elementbuffer);
         glBufferData(GL_ARRAY_BUFFER,
@@ -65,6 +65,9 @@
         glUseProgram(shaderProgramID);
     }
 
+    // MVP & stuff
+    [self beforeBinds];
+    
     // // Buffers call is like this:
     // // layout ix, size, type, isNormalized, isStride, array buffer offset
     
@@ -83,30 +86,31 @@
     }
     
     // Bind normals buffer
-    if(!uvs.empty()) {
+    if(!normals.empty() && NO) {
         glEnableVertexAttribArray(2);
-        glBindBuffer(GL_ARRAY_BUFFER, uvbuffer);
+        glBindBuffer(GL_ARRAY_BUFFER, normalbuffer);
         glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 0, (void*)0 );
     }
     
     // Bind element buffer
-    if(!indices.empty()) {
+    if(!indices.empty() && NO) {
         glEnableVertexAttribArray(3);
         glBindBuffer(GL_ARRAY_BUFFER, elementbuffer);
         glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, 0, (void*)0 );
     }
     
     if(textureID != -1) {
-        glActiveTexture(GL_TEXTURE0);
+        glActiveTexture([self glTextureName]);
         glBindTexture(GL_TEXTURE_2D, texture);
-        glUniform1i(textureID, 0);
+        glUniform1i(textureID, [self glTextureIndex]);
     }
     
     // // Draw calls
-    if(indices.empty()) {
+    if(indices.empty() || YES) {
         glDrawArrays(GL_TRIANGLES, 0, (int) vertices.size());
     }else{
-        
+        glDrawElements(GL_TRIANGLES, (int) indices.size(),
+                       GL_UNSIGNED_INT,(void*)0);
     }
     
     // TURN off buffers
@@ -117,6 +121,10 @@
     
 }
 
+-(void) beforeBinds {
+
+}
+
 -(void) onExit{
     if(shaderProgramID) glDeleteProgram(shaderProgramID);
     if(vertexbuffer) glDeleteBuffers(1, &vertexbuffer);
@@ -125,6 +133,13 @@
     if(elementbuffer) glDeleteBuffers(1, &elementbuffer);
 }
 
+-(int) glTextureIndex{
+    return 0;
+}
+
+-(int) glTextureName{
+    return GL_TEXTURE0;
+}
 
 -(void) loadTextureNamed:(NSString*) name{
     

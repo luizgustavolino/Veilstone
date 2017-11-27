@@ -51,6 +51,14 @@ extension Veilstone : JoystickControllerDelegate {
 
 extension Veilstone : MainRendererDelegate {
     
+    func currentEnergySupply() -> Float {
+        return 0.5
+    }
+    
+    func currentWaterSupply() -> Float {
+        return 0.1
+    }
+    
     func didChooseCard(withBuildingID bid: Int32) {
         
     }

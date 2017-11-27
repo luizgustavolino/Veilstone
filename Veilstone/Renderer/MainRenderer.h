@@ -28,7 +28,9 @@
 
 +(MainRenderer*) shared;
 -(int) runInFullscreen:(bool) full w:(int) dw h:(int) dh;
--(void) reload;
+
+-(void) prepareNextRender;
+-(void) swapRenders;
 
 -(void) shouldChooseNextBuilding;
 

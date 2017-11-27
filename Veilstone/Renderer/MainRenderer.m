@@ -39,6 +39,7 @@ using namespace glm;
     GLuint VertexArrayID;
     
     NSMutableArray<Renderer*> *renders;
+    NSMutableArray<Renderer*> *nextRenders;
 }
 @end
 
@@ -74,9 +75,7 @@ using namespace glm;
     
     fprintf(stderr, "[Renderer] Will take control\n");
     
-    // Load
-    // Render
-    // Exit
+    // Load, Render, Exit
     
     if(![self loadInFullscreen:full w:dw h:dh]) return -1;
     do [self render];
@@ -88,8 +87,16 @@ using namespace glm;
     return !(glfwGetKey(window, GLFW_KEY_ESCAPE) != GLFW_PRESS && glfwWindowShouldClose(window) == 0);
 }
 
--(void) reload{
-    
+-(void) prepareNextRender{
+    nextRenders = [@[[CityRenderer new], [HUDRenderer new]] retain];
+    for (Renderer* render in nextRenders) [render onLoad];
+    for (Renderer* render in nextRenders) [render onChargeBuffers];
+}
+
+-(void) swapRenders{
+    NSMutableArray<Renderer*> *old = renders;
+    renders = nextRenders;
+    [old release];
 }
 
 -(BOOL) loadInFullscreen:(bool) full w:(int) dw h:(int) dh{
@@ -145,10 +152,7 @@ using namespace glm;
     glGenVertexArrays(1, &VertexArrayID);
     glBindVertexArray(VertexArrayID);
     
-    renders = [@[[CityRenderer new], [HUDRenderer new]] retain];
-    
-    for (Renderer* render in renders) [render onLoad];
-    for (Renderer* render in renders) [render onChargeBuffers];
+    renders = [[NSMutableArray alloc] init];
     
     return YES;
 }

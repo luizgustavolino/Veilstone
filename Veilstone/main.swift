@@ -22,41 +22,61 @@ class Veilstone : NSObject{
     let renderer = MainRenderer.shared()!
     let joystick = JoystickController()
     var city = City(size: 10)
+    
     var nextPos = (x: 0, y: 0)
     var turns: Int = 5
-
+    
+    let bg = DispatchQueue(label: "bg")
     
     func run(){
+        
         joystick.delegate = self
         renderer.delegate = self
         
         city.updateInterests()
         city.printInterestMatrix()
+        
+        bg.asyncAfter(deadline: .now() + 1.0){
+            self.nextSimulation()
+        }
+        
         joystick.setup()
         renderer.run(inFullscreen: false, w: 960, h: 600)
-        nextSimulation()
+        
     }
     
     func nextSimulation(){
+
         turns -= 1
-        if(turns == 0){
+        
+        guard turns != 0 else{
             finishSimulation()
             return
         }
+        
         print("-------------------------------------------------------")
         
-        //Criar um criterio pro numero de pessoas
+        // Criar um criterio pro numero de pessoas
         let persons = Person.randomPersons(number: 10)
         city.newPeopleLogic(persons: persons)
-        
-        
-        renderer.reload()
         nextPos = city.newPos()
+        
+        // Atualiza o mapa
+        DispatchQueue.main.sync {
+            self.renderer.prepareNextRender()
+            self.renderer.swapRenders()
+        }
+        
+        // OLHA AI A CIDADE, parça
+        Thread.sleep(forTimeInterval: 3)
+        
+        // espera nova carta
         renderer.shouldChooseNextBuilding()
     }
     
     func finishSimulation(){
       city.printStats()
+      city.servicesStatus()
       city.printFinalStats(loops: 5)
     }
 }
@@ -75,20 +95,20 @@ extension Veilstone : JoystickControllerDelegate {
 extension Veilstone : MainRendererDelegate {
     
     func currentEnergySupply() -> Float {
-        city.servicesStatus()
         return Float(city.energyNeeded) / Float(city.energy)
     }
     
     func currentWaterSupply() -> Float {
-        city.servicesStatus()
         return Float(city.waterNeeded) / Float(city.water)
     }
     
     func didChooseCard(withBuildingID bid: Int32) {
+        
         city.newEFromOptions(id: Int(bid), x: nextPos.x, y: nextPos.y)
         city.updateStats()
         city.printMatrix()
-        nextSimulation()
+        
+        bg.async { self.nextSimulation() }
     }
     
     func mapSize() -> Int32 {
@@ -109,5 +129,4 @@ extension Veilstone : MainRendererDelegate {
 }
 
 Veilstone().run()
-//Veilstone().startSimulation()
 

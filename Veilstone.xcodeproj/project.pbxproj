@@ -64,12 +64,12 @@
 		2789794A1FC5B85300D4F012 /* 25x5xroad.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 278979441FC5B81500D4F012 /* 25x5xroad.obj */; };
 		27B9C3D61FCA6DDB003926D5 /* hud.vertexshader in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27B9C3D31FCA6A75003926D5 /* hud.vertexshader */; };
 		27B9C3D71FCA6DDB003926D5 /* hud.fragmentshader in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27B9C3D41FCA6A87003926D5 /* hud.fragmentshader */; };
-		27B9C3DC1FCB1648003926D5 /* HUDRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 27B9C3DB1FCB1648003926D5 /* HUDRenderer.m */; };
-		27B9C3DF1FCB17BD003926D5 /* Renderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 27B9C3DE1FCB17BD003926D5 /* Renderer.m */; };
-		27B9C3E21FCB1DC2003926D5 /* CityRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 27B9C3E11FCB1DC2003926D5 /* CityRenderer.m */; };
+		27B9C3DC1FCB1648003926D5 /* HUDRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 27B9C3DB1FCB1648003926D5 /* HUDRenderer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		27B9C3DF1FCB17BD003926D5 /* Renderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 27B9C3DE1FCB17BD003926D5 /* Renderer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		27B9C3E21FCB1DC2003926D5 /* CityRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 27B9C3E11FCB1DC2003926D5 /* CityRenderer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		27B9C3E51FCB2643003926D5 /* vox.fragmentshader in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27B9C3E31FCB261E003926D5 /* vox.fragmentshader */; };
 		27B9C3E61FCB2643003926D5 /* vox.vertexshader in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27B9C3E41FCB261E003926D5 /* vox.vertexshader */; };
-		27B9C3EB1FCB4549003926D5 /* HUDSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 27B9C3EA1FCB4549003926D5 /* HUDSprite.m */; };
+		27B9C3EB1FCB4549003926D5 /* HUDSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 27B9C3EA1FCB4549003926D5 /* HUDSprite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		27B9C3FB1FCB53BE003926D5 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 27B9C3FA1FCB53BD003926D5 /* libz.tbd */; };
 		27B9C4031FCB5B6C003926D5 /* lodepng.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27B9C4021FCB5B6C003926D5 /* lodepng.cpp */; };
 		27B9C4051FCB747F003926D5 /* texture.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27B9C4041FCB7472003926D5 /* texture.png */; };

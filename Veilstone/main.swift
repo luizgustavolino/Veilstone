@@ -105,7 +105,8 @@ extension Veilstone : MainRendererDelegate {
         city.newEFromOptions(id: Int(bid), x: nextPos.x, y: nextPos.y)
         city.updateStats()
         city.printMatrix()
-        
+        city.printInterestMatrix()
+        city.servicesStatus()
         bg.async { self.nextSimulation() }
     }
     

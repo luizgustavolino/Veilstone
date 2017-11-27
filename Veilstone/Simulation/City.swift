@@ -550,6 +550,10 @@ struct City{
     
     func printFinalStats(loops: Double){
         
+        let pib: Double = calcularPIB()
+        let rendaCapta: Double = pib / Double(persons.count)
+        let numEmpregos: Int = calcularEmpregos()
+        
         var finalEducacao = (1 - (educacao/loops)) * 100
         if finalEducacao < 0 {
             finalEducacao = 0
@@ -569,6 +573,9 @@ struct City{
         if finalSeguranca < 0 {
             finalSeguranca = 0
         }
+        print("---------------------------------------------------------")
+        print()
+        print("Relatório Final \n")
         print("\(finalEducacao) % das pessoas ficaram insatisfeitas com a Educacao durante seu mandato")
         print("\(finalSaude) % das pessoas ficaram insatisfeitas com a Saude durante seu mandato")
         print("\(finalCultura) % das pessoas ficaram insatisfeitas com a Cultura durante seu mandato")
@@ -578,17 +585,21 @@ struct City{
         print("Número de pessoas que não conseguiram um emprego: \(notFoundJob)")
         
         if noWater > 0{
-            print("Durante um certo período no seu mandato, o sistema de água ficou sobrecarregado, gerando quedas no abastecimento")
+            print("Durante um certo período no seu mandato, o sistema de água ficou sobrecarregado, gerando quedas no abastecimento: \(noWater)")
         }else{
             print("Sua gestão de água foi excelente!")
         }
         
         
         if noEnergy > 0{
-            print("Durante um certo período no seu mandato, o sistema de energia ficou sobrecarregado, gerando apagões")
+            print("Durante um certo período no seu mandato, o sistema de energia ficou sobrecarregado, gerando apagões: \(noEnergy)")
         }else{
             print("Sua gestão de energia foi excelente!")
         }
+        
+        print("Sua cidade gerou \(numEmpregos) empregos")
+        print("PIB da sua cidade: R$ \(pib)")
+        print("Renda per capta: R$ \(rendaCapta)")
         
         var dict = [String: Double]()
         dict.updateValue(finalEducacao, forKey: "educacao")
@@ -598,6 +609,9 @@ struct City{
         dict.updateValue(Double(persons.count), forKey: "numPessoas")
         dict.updateValue(Double(establishments.count), forKey: "numConstrucoes")
         dict.updateValue(Double(notFoundJob), forKey: "noJobs")
+        
+        print()
+        print("---------------------------------------------------------")
     }
     
     mutating func updateRelevancia(id: Int){
@@ -619,6 +633,26 @@ struct City{
         default:
             print("nao atualizou relevancias: \(id)")
         }
+    }
+    
+    func calcularPIB() -> Double{
+        var salary: Double = 0.0
+        
+        for person in persons{
+            salary += person.job.salary
+        }
+        
+        return salary
+    }
+    
+    func calcularEmpregos() -> Int{
+        var numEmpregos: Int = 0
+        
+        for establishment in establishments{
+            numEmpregos += establishment.jobs.count
+        }
+        
+        return numEmpregos
     }
     
     private static func readConfig(_ availables: [Establishment]) -> [PosTuple]{
